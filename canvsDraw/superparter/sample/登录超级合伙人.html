@@ -1,0 +1,72 @@
+
+<!-- saved from url=(0041)http://localhost/superparter/ui/login.php -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body>15810128531_128531<br>array(7) {
+  ["user_id"]=&gt;
+  int(4600)
+  ["invitation_code"]=&gt;
+  string(12) "867947492918"
+  ["introduction"]=&gt;
+  string(0) ""
+  ["nick_name"]=&gt;
+  string(0) ""
+  ["email"]=&gt;
+  string(0) ""
+  ["is_success"]=&gt;
+  int(1)
+  ["message"]=&gt;
+  string(12) "登陆成功"
+}
+
+
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+
+<link rel="stylesheet" href="./登录超级合伙人_files/hongbao.css" type="text/css" media="all">
+<title>登录超级合伙人</title>
+
+
+
+<div class="login-maindiv">
+<div class="login-head">
+<div id="show_mesage" name="show_mesage" style="float: left; color: rgb(144, 144, 144); font-size: 50.95px;" autocomplete="off">
+用户登录
+</div>
+<a href="http://localhost/superparter/ui/register.php" id="show_mesage_register" name="show_mesage_register" style="float: right; color: rgb(220, 156, 157); font-size: 40.76px; text-decoration: none;" autocomplete="off">
+注册</a>
+</div>
+<form name="formLogin" action="./登录超级合伙人_files/登录超级合伙人.html" method="post">
+<img id="login-middle" class="login-middle" src="./登录超级合伙人_files/login-middle.png">
+<input id="phone" name="phone" class="login-phone" type="number" value="" style="font-size: 71.33px; left: 254.75px; top: 366.84px;">
+<input id="password" name="password" class="login-passwd" type="password" value="" style="font-size: 71.33px; left: 254.75px; top: 519.69px;">
+<img onclick="if(checkMobile()) formLogin.submit(); else alert(&#39;手机号输入错误,请重新输入！&#39;)" class="login-submit" src="./登录超级合伙人_files/login-bnt_submig.png">
+</form>
+</div>
+<script type="text/javascript">	
+	
+    var p1=document.getElementById('show_mesage');
+    p1.style.fontSize=(document.body.clientWidth*0.05)+"px";
+	var p2=document.getElementById('show_mesage_register');
+    p2.style.fontSize=(document.body.clientWidth*0.04)+"px";
+	
+    var p3=document.getElementById('phone');
+    p3.style.fontSize=(document.body.clientWidth*0.07)+"px";
+    p3.style.left=(document.body.clientWidth*0.25)+"px";
+	p3.style.top=(document.body.clientWidth*0.36)+"px";
+
+    var p4=document.getElementById('password');
+    p4.style.fontSize=(document.body.clientWidth*0.07)+"px";
+    p4.style.left=(document.body.clientWidth*0.25)+"px";
+	p4.style.top=(document.body.clientWidth*0.51)+"px";	
+	
+function checkMobile()
+{
+	var str = document.getElementById('phone').value;
+    var is_correct = !!str.match(/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/);
+	if(is_correct==false)
+	{
+		document.getElementById('phone').value="";
+	}
+	return is_correct;
+}
+</script>
+
+</body></html>

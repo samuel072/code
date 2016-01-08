@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://www.gotiku.com/ -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="./Go! 题库_files/id.php" charset="utf-8"></script>
+	
+	<title>Go! 题库</title>
+	<link rel="stylesheet" href="http://www.gotiku.com/css/base.css">
+	<link rel="stylesheet" href="http://www.gotiku.com/css/index.css">
+    <link href="http://www.gotiku.com/css/my_mathjax.css" rel="stylesheet">
+	<!--<link rel="stylesheet" href="/css/roundabout.css" />-->
+	<link rel="stylesheet" href="http://www.gotiku.com/css/filter.css">
+    		<link rel="stylesheet" href="http://www.gotiku.com/css/district.css">
+    		<link rel="stylesheet" type="text/css" href="./Go! 题库_files/mytree.css">	<link rel="stylesheet" href="http://www.gotiku.com/css/footer.css">
+	<script src="./Go! 题库_files/jquery-1.11.1.min.js"></script>
+	<!--<script type="text/javascript" src="/js/jquery.roundabout-1.0.min.js"></script> 
+	<script type="text/javascript" src="/js/jquery.easing.1.3.js"></script> -->
+    	<script type="text/javascript" src="./Go! 题库_files/gotiku.js"></script>
+    		<script type="text/javascript" src="./Go! 题库_files/filter.js"></script>
+    		<script type="text/javascript" src="./Go! 题库_files/district.js"></script>	<script type="text/javascript" src="./Go! 题库_files/base64.js"></script>
+			<script type="text/javascript" src="./Go! 题库_files/index.js"></script>
+	<style type="text/css">
+		/***************************头容器样式************************/
+		.head{
+		     margin: 0;
+		     padding: 0;
+		     background-image: url(/imgs/hbg.jpg);
+		     /*-webkit-box-shadow:0px 0px 50px #111;
+			-moz-box-shadow:0px 0px 50px #111;*/
+			height: 178px;
+		     min-width: 980px;
+		}
+		.head-container{
+			/*居中显示*/
+			width: 980px;
+			margin: 0px auto;
+			/*其他样式*/
+		    
+		}
+
+		/********************logo样式***********************/
+		.logo{
+			float:left;
+			background: url(/imgs/logo.png);
+			margin-top: 45px;
+			width:268px;
+			height:67px;
+		}
+		.search-container{
+			float: left;
+                        width: 700px;
+		}
+		/*********************学科过滤项************************/
+		.subject-item{
+			float: left;
+			margin-left:25px;
+		}
+		.subject-item p{
+			float: left;
+			margin:0px 13px 0px 13px;
+			color: white;
+			font-size: 15px;
+			text-shadow: 0 0 3px #333;
+		}
+		.subject-item p:hover{
+			color: #fbf806;
+			cursor: pointer;
+		}
+		.subject-item p.subject_selected{
+			color: #fbf806;
+		}
+		/*************************查询框样式***********************/
+		.search-input {
+		    height: 36px;
+		    width: 560px;
+		    border-top:solid 2px #56ADC8;
+		    border-left:solid 2px #3497B6;
+		    border-bottom:solid 2px #03779C;
+		    font-size: 0.9em;
+		    float: left;
+		    margin-top:10px;
+		    margin-left:20px;
+			padding-left:10px;
+		}
+		.search-button {
+			float: left;
+		    width: 108px;
+		    height: 40px;
+		    line-height: 40px;
+		    background-color: #0184ae;
+		    cursor: pointer;
+		    left:-2px;
+			margin-left: 0px;
+			margin-top:10px;
+			color: white;
+			text-align: center;
+			font-size: 1.3em;
+			font-family: verdana,arial,sans-serif;
+		}
+		.search-button:hover {
+			background-color: #1281a4;
+		}
+		/***************************导航样式****************************/
+		.nav-container{
+			height: 48px;
+			min-width: 980px;
+			line-height: 48px;
+			background-image: url(/imgs/nav_bg.png);
+		}
+		.div_nav{
+			width: 980px;
+			margin: 0 auto;
+		}
+		.div_nav a{
+			height: 40px;
+			line-height: 40px;
+			display: block;
+			float: left;
+			text-decoration: none;
+			font-size: 16px;
+			cursor: pointer;
+			margin-top: 1px;
+			margin-bottom: 1px;
+			padding-left: 47px;
+			padding-right: 47px;
+                        padding-top:1px;
+			border: 1px;
+			color:#666;
+		}
+                .div_nav a:hover {
+                        color:#4abed4;
+                        text-decoration:underline;
+                }
+
+		.div_nav a.selected{
+                        text-decoration:none;
+                        padding-top:0px;
+			color: white;
+			background-color: #06a2cb;
+			border: solid 1px white;
+			box-shadow: 0px 0px 10px rgba(100,100,100,0.8) inset,0px 0px 5px rgba(200,200,200,0.5);
+		}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function(){
+				//学科
+				$("p.subject").bind("click", function(){
+					$("p.subject").removeClass("subject_selected");
+					$(this).addClass("subject_selected");
+				});
+
+				$("#btn_search").click(function(){
+					var s="all";
+					if($("#subject p.subject_selected").length>0)
+						s=$($("#subject p.subject_selected")[0]).attr("value");
+					var q=$("#input_query").val();
+					if($(".fix-container").is(":visible"))
+					{
+						q = $("#fix_input_query").val();
+					}
+		   			location.href = "/search/s?subject="+s+"&query="+q;
+				});
+		});
+	</script><script type="text/javascript">
+$(document).ready(function(){
+
+        $("#input_search").focus(function(e)
+        {
+                var n = "";
+                suggester._checkInputTimer = window.setInterval(function(){suggester._dom.val().trim() != n && (suggester._manageSuggester(e), n = suggester._dom.val().trim())},suggester._checkInputSec);
+        });
+
+        $("#input_search").blur(function(e){
+                clearTimeout(suggester.checkInputTimer);
+        });
+});
+</script>
+<script charset="UTF-8" src="./Go! 题库_files/bundle.js"></script><script charset="UTF-8" src="./Go! 题库_files/iframeWidget.js"></script></head>
+<body><iframe id="sina_anywhere_iframe" style="display: none;"></iframe><link href="./Go! 题库_files/jiathis_share.css" rel="stylesheet" type="text/css"><div class="jiathis_style" style="height: auto; position: fixed; z-index: 100000000; top: 350px; right: 0px; overflow: hidden; width: 26px;"><table cellpadding="0" cellspacing="0"><tbody style="background:transparent"><tr><td style="background:transparent"><img src="./Go! 题库_files/r5.gif" style="cursor:pointer;" onmouseover="$CKE.over()" onclick="$CKE.center(this)"></td><td><div><div class="jiadiv_01"><div style="width:100%;background:#F2F2F2;border-bottom:1px solid #E5E5E5;line-height:200%;padding-left:5px;font-size:12px"><table width="100%"><tbody><tr class="jt_sharetitle"><td align="left" style="text-align:left;line-height:25px;font-size:14px;font-weight:bold;color:#000000;">分享到...</td><td align="right" style="text-align:right;"><img src="./Go! 题库_files/img_exit.gif" border="0" style="opacity:0.5;filter:alpha(opacity=50);margin:0 10px;cursor:pointer;" onclick="$CKE.shareClose();"></td></tr></tbody></table></div><div class="jiadiv_02" style="width:100%;" id="jiathis_sers"><a href="javascript:;" onclick="jiathis_sendto(&#39;weixin&#39;);return false;" class="jiatitle"><span class="jtico jtico_weixin">微信</span></a><a href="javascript:;" onclick="jiathis_sendto(&#39;copy&#39;);return false;" class="jiatitle"><span class="jtico jtico_copy">复制网址</span></a><a href="javascript:;" onclick="jiathis_sendto(&#39;email&#39;);return false;" class="jiatitle"><span class="jtico jtico_email">邮件</span></a><a href="javascript:;" onclick="jiathis_sendto(&#39;qzone&#39;);return false;" class="jiatitle"><span class="jtico jtico_qzone">QQ空间</span></a><a href="javascript:;" onclick="jiathis_sendto(&#39;tsina&#39;);return false;" class="jiatitle"><span class="jtico jtico_tsina">新浪微博</span></a><a href="javascript:;" onclick="jiathis_sendto(&#39;tqq&#39;);return false;" class="jiatitle"><span class="jtico jtico_tqq">腾讯微博</span></a><a href="javascript:;" onclick="jiathis_sendto(&#39;renren&#39;);return false;" class="jiatitle"><span class="jtico jtico_renren">人人网</span></a><a href="javascript:;" onclick="jiathis_sendto(&#39;yixin&#39;);return false;" class="jiatitle"><span class="jtico jtico_yixin">易信</span></a><a href="javascript:;" onclick="jiathis_sendto(&#39;t163&#39;);return false;" class="jiatitle"><span class="jtico jtico_t163">网易微博</span></a><a href="javascript:;" onclick="jiathis_sendto(&#39;tsohu&#39;);return false;" class="jiatitle"><span class="jtico jtico_tsohu">搜狐微博</span></a><a href="javascript:;" onclick="jiathis_sendto(&#39;cqq&#39;);return false;" class="jiatitle"><span class="jtico jtico_cqq">QQ好友</span></a><a href="javascript:;" onclick="jiathis_sendto(&#39;kaixin001&#39;);return false;" class="jiatitle"><span class="jtico jtico_kaixin001">开心网</span></a><a href="javascript:;" onclick="jiathis_sendto(&#39;feixin&#39;);return false;" class="jiatitle"><span class="jtico jtico_feixin">飞信</span></a><a href="javascript:;" onclick="jiathis_sendto(&#39;douban&#39;);return false;" class="jiatitle"><span class="jtico jtico_douban">豆瓣</span></a><a href="javascript:;" onclick="jiathis_sendto(&#39;ishare&#39;);return false;" class="jiatitle"><span class="jtico jtico_ishare">一键分享</span></a><a href="javascript:;" onclick="$CKE.center(this);return false;" class="jiatitle"><span class="jtico jtico_jiathis">查看更多(122)</span></a><div style="clear:both"></div></div><div class="ckepopBottom" style="width:100%;"><div style="float:left;font-size:10px"><a href="http://www.jiathis.com/help/html/what-is-jiathis" class="link_01" style="color:#333333;" target="_blank">这是什么工具?</a></div><div style="float:right;font-size:11px;margin:0 5px 0 0;"><img src="./Go! 题库_files/img_012.gif" align="absmiddle" border="0"><a href="http://www.jiathis.com/index2" style="color:#333333;padding:0 3px;" class="link_01" target="_blank">JiaThis</a></div><div style="clear:both"></div></div></div></div></td></tr></tbody></table></div><iframe frameborder="0" style="position: absolute; display: none;"></iframe><div class="jiathis_style" style="height: auto; position: absolute; z-index: 100000000; display: none; top: 350px; left: 50%; overflow: auto;"><div style="border:10px solid #7F7F7F; width:300px;"><div class="jiadiv_01" style="width:300px;"><div style="background:#F2F2F2;line-height:100%;height:30px;overflow:hidden;width:300px;"><table width="100%" style="margin:5px 0 0 0;"><tbody><tr class="jt_sharetitle" style="line-height:20px!important;"><td align="left" style="text-align:left;font-size:12px;">分享到各大网站</td><td align="right"><img src="./Go! 题库_files/img_exit.gif" border="0" style="margin:0 4px;cursor:pointer;" onclick="$CKE.centerClose();"></td></tr></tbody></table></div><div class="searchTxtCont"><div style="background:url(http://v3.jiathis.com/code/images/img_so.gif) no-repeat center;height:30px; width:281px"><form onsubmit="return false;"><input class="searchTxt" name="" type="text" onclick="this.value=&#39;&#39;;this.style.color=&#39;#000&#39;;" value="输入网站名或拼音缩写" onkeyup="$CKE.choose(this);"></form></div></div><div id="jiathis_sharelist" class="jiadiv_02" style="width:300px;height:300px;overflow-y:auto;"><a href="javascript:;" onclick="jiathis_sendto(&#39;ishare&#39;);return false;" class="jiatitle"><span class="jtico jtico_ishare">一键分享</span><input type="hidden" value="ishare,一键分享,yjfx"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;ujian&#39;);return false;" class="jiatitle"><span class="jtico jtico_ujian">猜你喜欢</span><input type="hidden" value="ujian,猜你喜欢,cnxh"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;copy&#39;);return false;" class="jiatitle"><span class="jtico jtico_copy">复制网址</span><input type="hidden" value="copy,复制网址,fzwz"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;fav&#39;);return false;" class="jiatitle"><span class="jtico jtico_fav">收藏夹</span><input type="hidden" value="fav,收藏夹,scj"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;print&#39;);return false;" class="jiatitle"><span class="jtico jtico_print">打印</span><input type="hidden" value="print,打印,dy"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;email&#39;);return false;" class="jiatitle"><span class="jtico jtico_email">邮件</span><input type="hidden" value="email,邮件,yj"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;qzone&#39;);return false;" class="jiatitle"><span class="jtico jtico_qzone">QQ空间</span><input type="hidden" value="qzone,QQ空间,qqkj"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;tsina&#39;);return false;" class="jiatitle"><span class="jtico jtico_tsina">新浪微博</span><input type="hidden" value="tsina,新浪微博,xlwb"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;weixin&#39;);return false;" class="jiatitle"><span class="jtico jtico_weixin">微信</span><input type="hidden" value="weixin,微信,wx"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;tqq&#39;);return false;" class="jiatitle"><span class="jtico jtico_tqq">腾讯微博</span><input type="hidden" value="tqq,腾讯微博,txwb"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;tsohu&#39;);return false;" class="jiatitle"><span class="jtico jtico_tsohu">搜狐微博</span><input type="hidden" value="tsohu,搜狐微博,shwb"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;t163&#39;);return false;" class="jiatitle"><span class="jtico jtico_t163">网易微博</span><input type="hidden" value="t163,网易微博,wywb"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;renren&#39;);return false;" class="jiatitle"><span class="jtico jtico_renren">人人网</span><input type="hidden" value="renren,人人网,rrw"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;kaixin001&#39;);return false;" class="jiatitle"><span class="jtico jtico_kaixin001">开心网</span><input type="hidden" value="kaixin001,开心网,kxw"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;googleplus&#39;);return false;" class="jiatitle"><span class="jtico jtico_googleplus">Google+</span><input type="hidden" value="googleplus,Google+,googlej"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;yixin&#39;);return false;" class="jiatitle"><span class="jtico jtico_yixin">易信</span><input type="hidden" value="yixin,易信,yx"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;alibaba&#39;);return false;" class="jiatitle"><span class="jtico jtico_alibaba">阿里巴巴</span><input type="hidden" value="alibaba,阿里巴巴,albb"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;douban&#39;);return false;" class="jiatitle"><span class="jtico jtico_douban">豆瓣</span><input type="hidden" value="douban,豆瓣,db"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;xiaoyou&#39;);return false;" class="jiatitle"><span class="jtico jtico_xiaoyou">朋友网</span><input type="hidden" value="xiaoyou,朋友网,pyw"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;sdonote&#39;);return false;" class="jiatitle"><span class="jtico jtico_sdonote">麦库记事</span><input type="hidden" value="sdonote,麦库记事,mkjs"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;baidu&#39;);return false;" class="jiatitle"><span class="jtico jtico_baidu">百度搜藏</span><input type="hidden" value="baidu,百度搜藏,bdsc"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;taobao&#39;);return false;" class="jiatitle"><span class="jtico jtico_taobao">淘江湖</span><input type="hidden" value="taobao,淘江湖,tjh"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;ydnote&#39;);return false;" class="jiatitle"><span class="jtico jtico_ydnote">有道云笔记</span><input type="hidden" value="ydnote,有道云笔记,ydybj"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;189share&#39;);return false;" class="jiatitle"><span class="jtico jtico_189share">手机快传</span><input type="hidden" value="189share,手机快传,sjkc"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;tianya&#39;);return false;" class="jiatitle"><span class="jtico jtico_tianya">天涯社区</span><input type="hidden" value="tianya,天涯社区,tysq"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;feixin&#39;);return false;" class="jiatitle"><span class="jtico jtico_feixin">飞信</span><input type="hidden" value="feixin,飞信,fx"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;tieba&#39;);return false;" class="jiatitle"><span class="jtico jtico_tieba">百度贴吧</span><input type="hidden" value="tieba,百度贴吧,bdtb"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;qingbiji&#39;);return false;" class="jiatitle"><span class="jtico jtico_qingbiji">轻笔记</span><input type="hidden" value="qingbiji,轻笔记,qbj"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;tifeng&#39;);return false;" class="jiatitle"><span class="jtico jtico_tifeng">凤凰微博</span><input type="hidden" value="tifeng,凤凰微博,fhwb"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;youshi&#39;);return false;" class="jiatitle"><span class="jtico jtico_youshi">优士网</span><input type="hidden" value="youshi,优士网,ysw"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;fanfou&#39;);return false;" class="jiatitle"><span class="jtico jtico_fanfou">饭否</span><input type="hidden" value="fanfou,饭否,ff"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;diandian&#39;);return false;" class="jiatitle"><span class="jtico jtico_diandian">点点网</span><input type="hidden" value="diandian,点点网,ddw"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;mingdao&#39;);return false;" class="jiatitle"><span class="jtico jtico_mingdao">明道</span><input type="hidden" value="mingdao,明道,md"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;zsvs&#39;);return false;" class="jiatitle"><span class="jtico jtico_zsvs">中搜v商</span><input type="hidden" value="zsvs,中搜v商,zsvs"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;google&#39;);return false;" class="jiatitle"><span class="jtico jtico_google">谷歌</span><input type="hidden" value="google,谷歌,gg"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;buzz&#39;);return false;" class="jiatitle"><span class="jtico jtico_buzz">谷歌Buzz</span><input type="hidden" value="buzz,谷歌Buzz,ggbuzz"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;youdao&#39;);return false;" class="jiatitle"><span class="jtico jtico_youdao">有道书签</span><input type="hidden" value="youdao,有道书签,ydsq"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;cqq&#39;);return false;" class="jiatitle"><span class="jtico jtico_cqq">QQ好友</span><input type="hidden" value="cqq,QQ好友,cqq"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;qq&#39;);return false;" class="jiatitle"><span class="jtico jtico_qq">QQ书签</span><input type="hidden" value="qq,QQ书签,qqsq"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;msn&#39;);return false;" class="jiatitle"><span class="jtico jtico_msn">MSN</span><input type="hidden" value="msn,MSN,msn"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;pinterest&#39;);return false;" class="jiatitle"><span class="jtico jtico_pinterest">Pinterest</span><input type="hidden" value="pinterest,Pinterest,pinterest"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;huaban&#39;);return false;" class="jiatitle"><span class="jtico jtico_huaban">花瓣网</span><input type="hidden" value="huaban,花瓣网,hbw"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;duitang&#39;);return false;" class="jiatitle"><span class="jtico jtico_duitang">堆糖</span><input type="hidden" value="duitang,堆糖,dt"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;tyaolan&#39;);return false;" class="jiatitle"><span class="jtico jtico_tyaolan">摇篮微博</span><input type="hidden" value="tyaolan,摇篮微博,ylwb"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;115&#39;);return false;" class="jiatitle"><span class="jtico jtico_115">115收藏</span><input type="hidden" value="115,115收藏,115sc"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;hi&#39;);return false;" class="jiatitle"><span class="jtico jtico_hi">百度空间</span><input type="hidden" value="hi,百度空间,bdkj"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;gmail&#39;);return false;" class="jiatitle"><span class="jtico jtico_gmail">Gmail邮箱</span><input type="hidden" value="gmail,Gmail邮箱,gmailyx"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;hotmail&#39;);return false;" class="jiatitle"><span class="jtico jtico_hotmail">Hotmail邮箱</span><input type="hidden" value="hotmail,Hotmail邮箱,hotmailyx"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;xqw&#39;);return false;" class="jiatitle"><span class="jtico jtico_xqw">雪球</span><input type="hidden" value="xqw,雪球,xqw"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;hexun&#39;);return false;" class="jiatitle"><span class="jtico jtico_hexun">和讯</span><input type="hidden" value="hexun,和讯,hx"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;toeeee&#39;);return false;" class="jiatitle"><span class="jtico jtico_toeeee">南方微博</span><input type="hidden" value="toeeee,南方微博,nfwb"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;139mail&#39;);return false;" class="jiatitle"><span class="jtico jtico_139mail">139邮箱</span><input type="hidden" value="139mail,139邮箱,139yx"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;189mail&#39;);return false;" class="jiatitle"><span class="jtico jtico_189mail">189邮箱</span><input type="hidden" value="189mail,189邮箱,189yx"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;i139&#39;);return false;" class="jiatitle"><span class="jtico jtico_i139">爱分享</span><input type="hidden" value="i139,爱分享,afx"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;iwo&#39;);return false;" class="jiatitle"><span class="jtico jtico_iwo">WO+分享</span><input type="hidden" value="iwo,WO+分享,iwo"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;189cn&#39;);return false;" class="jiatitle"><span class="jtico jtico_189cn">翼友圈</span><input type="hidden" value="189cn,翼友圈,yyq"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;139&#39;);return false;" class="jiatitle"><span class="jtico jtico_139">移动微博</span><input type="hidden" value="139,移动微博,ydwb"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;tpeople&#39;);return false;" class="jiatitle"><span class="jtico jtico_tpeople">人民微博</span><input type="hidden" value="tpeople,人民微博,rmwb"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;cnfol&#39;);return false;" class="jiatitle"><span class="jtico jtico_cnfol">中金微博</span><input type="hidden" value="cnfol,中金微博,zjwb"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;txinhua&#39;);return false;" class="jiatitle"><span class="jtico jtico_txinhua">新华微博</span><input type="hidden" value="txinhua,新华微博,xhwb"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;caimi&#39;);return false;" class="jiatitle"><span class="jtico jtico_caimi">财迷</span><input type="hidden" value="caimi,财迷,cm"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;translate&#39;);return false;" class="jiatitle"><span class="jtico jtico_translate">谷歌翻译</span><input type="hidden" value="translate,谷歌翻译,ggfy"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;tuita&#39;);return false;" class="jiatitle"><span class="jtico jtico_tuita">推他</span><input type="hidden" value="tuita,推他,tt"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;mop&#39;);return false;" class="jiatitle"><span class="jtico jtico_mop">猫扑推客</span><input type="hidden" value="mop,猫扑推客,mptk"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;digu&#39;);return false;" class="jiatitle"><span class="jtico jtico_digu">嘀咕网</span><input type="hidden" value="digu,嘀咕网,dgw"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;xianguo&#39;);return false;" class="jiatitle"><span class="jtico jtico_xianguo">鲜果</span><input type="hidden" value="xianguo,鲜果,xg"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;faxianla&#39;);return false;" class="jiatitle"><span class="jtico jtico_faxianla">发现啦</span><input type="hidden" value="faxianla,发现啦,fxl"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;ganniu&#39;);return false;" class="jiatitle"><span class="jtico jtico_ganniu">赶牛网</span><input type="hidden" value="ganniu,赶牛网,gnw"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;miliao&#39;);return false;" class="jiatitle"><span class="jtico jtico_miliao">米聊</span><input type="hidden" value="miliao,米聊,ml"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;kansohu&#39;);return false;" class="jiatitle"><span class="jtico jtico_kansohu">搜狐随身看</span><input type="hidden" value="kansohu,搜狐随身看,shssk"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;51&#39;);return false;" class="jiatitle"><span class="jtico jtico_51">51社区</span><input type="hidden" value="51,51社区,51sq"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;ifengkb&#39;);return false;" class="jiatitle"><span class="jtico jtico_ifengkb">凤凰快博</span><input type="hidden" value="ifengkb,凤凰快博,fhkb"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;jcrb&#39;);return false;" class="jiatitle"><span class="jtico jtico_jcrb">法律微博</span><input type="hidden" value="jcrb,法律微博,flwb"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;gmw&#39;);return false;" class="jiatitle"><span class="jtico jtico_gmw">光明网</span><input type="hidden" value="gmw,光明网,gmw"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;leihou&#39;);return false;" class="jiatitle"><span class="jtico jtico_leihou">雷猴网</span><input type="hidden" value="leihou,雷猴网,lhw"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;thexun&#39;);return false;" class="jiatitle"><span class="jtico jtico_thexun">和讯微博</span><input type="hidden" value="thexun,和讯微博,hxwb"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;dream163&#39;);return false;" class="jiatitle"><span class="jtico jtico_dream163">游戏江湖</span><input type="hidden" value="dream163,游戏江湖,yxjh"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;masar&#39;);return false;" class="jiatitle"><span class="jtico jtico_masar">玛撒网</span><input type="hidden" value="masar,玛撒网,msw"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;binzhi&#39;);return false;" class="jiatitle"><span class="jtico jtico_binzhi">宾至网</span><input type="hidden" value="binzhi,宾至网,bzw"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;fb&#39;);return false;" class="jiatitle"><span class="jtico jtico_fb">Facebook</span><input type="hidden" value="fb,Facebook,facebook"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;twitter&#39;);return false;" class="jiatitle"><span class="jtico jtico_twitter">Twitter</span><input type="hidden" value="twitter,Twitter,twitter"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;tumblr&#39;);return false;" class="jiatitle"><span class="jtico jtico_tumblr">Tumblr</span><input type="hidden" value="tumblr,Tumblr,tumblr"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;reddit&#39;);return false;" class="jiatitle"><span class="jtico jtico_reddit">Reddit</span><input type="hidden" value="reddit,Reddit,reddit"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;instapaper&#39;);return false;" class="jiatitle"><span class="jtico jtico_instapaper">Instapaper</span><input type="hidden" value="instapaper,Instapaper,instapaper"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;pocket&#39;);return false;" class="jiatitle"><span class="jtico jtico_pocket">Pocket</span><input type="hidden" value="pocket,Pocket,pocket"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;wealink&#39;);return false;" class="jiatitle"><span class="jtico jtico_wealink">若邻网</span><input type="hidden" value="wealink,若邻网,rlw"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;leshou&#39;);return false;" class="jiatitle"><span class="jtico jtico_leshou">乐收</span><input type="hidden" value="leshou,乐收,ls"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;waakee&#39;);return false;" class="jiatitle"><span class="jtico jtico_waakee">挖客网</span><input type="hidden" value="waakee,挖客网,wkw"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;cyzone&#39;);return false;" class="jiatitle"><span class="jtico jtico_cyzone">创业邦</span><input type="hidden" value="cyzone,创业邦,cyb"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;99earth&#39;);return false;" class="jiatitle"><span class="jtico jtico_99earth">救救地球</span><input type="hidden" value="99earth,救救地球,jjdq"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;chouti&#39;);return false;" class="jiatitle"><span class="jtico jtico_chouti">抽屉网</span><input type="hidden" value="chouti,抽屉网,ctw"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;dig24&#39;);return false;" class="jiatitle"><span class="jtico jtico_dig24">递客网</span><input type="hidden" value="dig24,递客网,dkw"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;douban9dian&#39;);return false;" class="jiatitle"><span class="jtico jtico_douban9dian">豆瓣9点</span><input type="hidden" value="douban9dian,豆瓣9点,db9d"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;meilishuo&#39;);return false;" class="jiatitle"><span class="jtico jtico_meilishuo">美丽说</span><input type="hidden" value="meilishuo,美丽说,mls"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;mogujie&#39;);return false;" class="jiatitle"><span class="jtico jtico_mogujie">蘑菇街</span><input type="hidden" value="mogujie,蘑菇街,mgj"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;tianji&#39;);return false;" class="jiatitle"><span class="jtico jtico_tianji">天际网</span><input type="hidden" value="tianji,天际网,tjw"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;poco&#39;);return false;" class="jiatitle"><span class="jtico jtico_poco">Poco网</span><input type="hidden" value="poco,Poco网,pocow"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;yijee&#39;);return false;" class="jiatitle"><span class="jtico jtico_yijee">易集网</span><input type="hidden" value="yijee,易集网,yjw"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;pdfonline&#39;);return false;" class="jiatitle"><span class="jtico jtico_pdfonline">Pdf在线转换</span><input type="hidden" value="pdfonline,Pdf在线转换,pdfzxzh"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;printfriendly&#39;);return false;" class="jiatitle"><span class="jtico jtico_printfriendly">友好打印</span><input type="hidden" value="printfriendly,友好打印,yhdy"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;w3c&#39;);return false;" class="jiatitle"><span class="jtico jtico_w3c">W3c验证</span><input type="hidden" value="w3c,W3c验证,w3cyz"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;bitly&#39;);return false;" class="jiatitle"><span class="jtico jtico_bitly">Bit.ly</span><input type="hidden" value="bitly,Bit.ly,bitly"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;digg&#39;);return false;" class="jiatitle"><span class="jtico jtico_digg">Digg</span><input type="hidden" value="digg,Digg,digg"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;mailru&#39;);return false;" class="jiatitle"><span class="jtico jtico_mailru">Mail.ru</span><input type="hidden" value="mailru,Mail.ru,mail.ru"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;diigo&#39;);return false;" class="jiatitle"><span class="jtico jtico_diigo">Diigo</span><input type="hidden" value="diigo,Diigo,diigo"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;evernote&#39;);return false;" class="jiatitle"><span class="jtico jtico_evernote">EverNote</span><input type="hidden" value="evernote,EverNote,evernote"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;friendfeed&#39;);return false;" class="jiatitle"><span class="jtico jtico_friendfeed">FriendFeed</span><input type="hidden" value="friendfeed,FriendFeed,friendfeed"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;myspace&#39;);return false;" class="jiatitle"><span class="jtico jtico_myspace">Myspace</span><input type="hidden" value="myspace,Myspace,myspace"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;linkedin&#39;);return false;" class="jiatitle"><span class="jtico jtico_linkedin">LinkedIn</span><input type="hidden" value="linkedin,LinkedIn,linkedin"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;mixx&#39;);return false;" class="jiatitle"><span class="jtico jtico_mixx">Mixx</span><input type="hidden" value="mixx,Mixx,mixx"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;netlog&#39;);return false;" class="jiatitle"><span class="jtico jtico_netlog">NetLog</span><input type="hidden" value="netlog,NetLog,netlog"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;netvibes&#39;);return false;" class="jiatitle"><span class="jtico jtico_netvibes">Netvibes</span><input type="hidden" value="netvibes,Netvibes,netvibes"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;phonefavs&#39;);return false;" class="jiatitle"><span class="jtico jtico_phonefavs">Phonefavs</span><input type="hidden" value="phonefavs,Phonefavs,phonefavs"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;pingfm&#39;);return false;" class="jiatitle"><span class="jtico jtico_pingfm">Ping.fm</span><input type="hidden" value="pingfm,Ping.fm,ping.fm"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;plaxo&#39;);return false;" class="jiatitle"><span class="jtico jtico_plaxo">Plaxo</span><input type="hidden" value="plaxo,Plaxo,plaxo"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;delicious&#39;);return false;" class="jiatitle"><span class="jtico jtico_delicious">Delicious</span><input type="hidden" value="delicious,Delicious,delicious"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;wong&#39;);return false;" class="jiatitle"><span class="jtico jtico_wong">Mister Wong</span><input type="hidden" value="wong,Mister Wong,misterwong"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;stumbleupon&#39;);return false;" class="jiatitle"><span class="jtico jtico_stumbleupon">Stumbleupon</span><input type="hidden" value="stumbleupon,Stumbleupon,stumbleupon"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;plurk&#39;);return false;" class="jiatitle"><span class="jtico jtico_plurk">Plurk</span><input type="hidden" value="plurk,Plurk,plurk"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;funp&#39;);return false;" class="jiatitle"><span class="jtico jtico_funp">Funp</span><input type="hidden" value="funp,Funp,funp"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;myshare&#39;);return false;" class="jiatitle"><span class="jtico jtico_myshare">Myshare</span><input type="hidden" value="myshare,Myshare,myshare"></a><a href="javascript:;" onclick="jiathis_sendto(&#39;fwisp&#39;);return false;" class="jiatitle"><span class="jtico jtico_fwisp">Fwisp</span><input type="hidden" value="fwisp,Fwisp,fwisp"></a><div style="clear:both"></div></div><div class="centerBottom"><div style="float:left;font-size:10px;"><a href="http://www.jiathis.com/help/html/what-is-jiathis" class="link_01" style="color:#333333;" target="_blank">这是什么工具?</a></div><div style="float:right;font-size:11px;margin:0 10px 0 0;"><img src="./Go! 题库_files/img_012.gif" align="absmiddle" border="none">&nbsp;<a href="http://www.jiathis.com/index2" style="color:#333333;" class="link_01" target="_blank">JiaThis</a></div><div style="clear:both"></div></div></div></div></div><iframe frameborder="0" src="./Go! 题库_files/jiathis_utility.html" style="display: none;"></iframe>
+	
+		<!--页面头部代码：不是index页面时逻辑-->
+				<!--页面头部代码：ndex页面时逻辑-->
+			<div class="head">
+				<div class="head-container">
+					<a href="http://www.gotiku.com/search/index"><img class="logo" src="./Go! 题库_files/logo.png"></a>
+					<div class="search-container">
+						<div id="subject" class="subject-item" style="margin-top: 45px;">
+							<p class="subject subject_selected" value="all">全部</p>
+																	<p class="subject" value="chinese">语文</p>									<p class="subject" value="math">数学</p>									<p class="subject" value="english">英语</p>									<p class="subject" value="physics">物理</p>									<p class="subject" value="chemistry">化学</p>									<p class="subject" value="biology">生物</p>									<p class="subject" value="politics">政治</p>									<p class="subject" value="history">历史</p>									<p class="subject" value="geography">地理</p>						</div>
+						<div style="clear:both"></div>
+						<div>
+							<input id="input_query" value="" name="query" class="search-input" type="text" autocomplete="off">
+							<div id="btn_search" class="search-button">GO</div>
+						</div>
+					</div>
+					<div class="login_container" style="display:none;">
+						<div class="login_img">
+							<img src="./Go! 题库_files/login.png">
+						</div>
+						<div class="login_register">
+							<a class="login">登录</a>
+							<a class="register">注册</a>
+						</div>
+					</div>
+				</div>
+			</div>        <div class="nav-container">
+				<div class="div_nav">
+					<a href="./Go! 题库_files/Go! 题库.html" class="selected">首页</a>
+					<a href="http://www.gotiku.com/search/browsequestion">试题</a>&nbsp;&nbsp;
+					<a href="http://www.gotiku.com/search/p">试卷</a>
+					<a href="http://www.gotiku.com/search/atlas">知识图谱</a>
+				</div>
+			</div>
+			<div style="clear:both"></div>		<div style="clear:both"></div>
+    <div style="clear:both"></div>
+    <!--div class="filter-show " style="display: none;" id="light">
+    </div-->
+<div id="fade" class="black_overlay" style="display: none;"></div>
+
+    <div class="content">
+        <div class="content-container">
+            <div id="s_ctner" class="s-ctner">
+               <div class="filter-show " style="display: none;" id="light">					<div id="div_subitem" class="subitem">
+						<div class="filter-show-title">
+								<div class="set-fliter-close">
+										<a class="filter-close"></a>
+								</div>
+								<div style="clear:both;"></div>
+						</div>
+
+						<div id="div_subject">
+							<div class="item-left">
+								&nbsp;选学科
+							</div>
+							<div id="subject" class="item-right" style="margin-bottom:5px;">
+								<div class="item-right-item" style="width:40px;margin-top:5px;font-weight: bold;">小学</div>
+								<div typeid="subject" class="subject item-right-item" style="width:310px;">
+								<p value="math1">数学</p>								</div>
+								<div style="clear:both;"></div>
+								<div class="item-right-item" style="width:40px;margin-top:5px;font-weight: bold;">初中</div>
+								<div typeid="subject" class="subject item-right-item">
+							    <p value="chinese2">语文</p><p value="math2">数学</p><p value="english2">英语</p><p value="physics2">物理</p><p value="chemistry2">化学</p><p value="biology2">生物</p><p value="politics2">政治</p><p value="history2">历史</p><p value="geography2">地理</p>								</div>
+								<div style="clear:both;"></div>
+								<div class="item-right-item" style="width:40px;margin-top:5px;font-weight: bold;">高中</div>
+								<div typeid="subject" class="subject item-right-item">
+							    <p value="chinese3">语文</p><p class="selected" value="math3">数学</p><p value="english3">英语</p><p value="physics3">物理</p><p value="chemistry3">化学</p><p value="biology3">生物</p><p value="politics3">政治</p><p value="history3">历史</p><p value="geography3">地理</p>							    </div>
+							</div>
+						</div>
+						<div style="clear:both;"></div>
+						<div id="div_jiaocai">
+							<div class="item-left">
+								&nbsp;选教材
+							</div>
+							<div id="jiaocai" typeid="jiaocai" class="jiaocai item-right" style="/*margin-top:0px;*/">
+								<p class="selected" value="28263">人教A版</p><p value="28264">人教B版</p><p value="28265">北师大版</p><p value="28266">大纲版</p><p value="28267">沪教版</p><p value="28268">湘教版</p><a id="filter-more" class="filter-more" onclick="document.getElementById(&#39;f_jc_more&#39;).style.display=&#39;block&#39;; document.getElementById(&#39;filter-more&#39;).style.display=&#39;none&#39;">更多...</a> <div id="f_jc_more" style="display:none"><p value="28269">苏教版</p></div>							</div>
+						</div>
+						<div style="clear:both;"></div>
+						<div id="div_xuece">
+							<div class="item-left">
+								&nbsp;选课本
+							</div>
+							<div id="xuece" typeid="xuece" class="xuece item-right" style="margin-bottom:5px;">
+								<p class="selected" value="28270">必修1</p><p value="28271">必修2</p><p value="28272">必修3</p><p value="28273">必修4</p><p value="28274">必修5</p><p value="28275">选修1-1</p><p value="28276">选修1-2</p><a id="filter-xc-more" class="filter-xc-more" onclick="document.getElementById(&#39;f_xc_more&#39;).style.display=&#39;block&#39;; document.getElementById(&#39;filter-xc-more&#39;).style.display=&#39;none&#39;">更多...</a> <div id="f_xc_more" style="display:none"><p value="28277">选修2-1</p><p value="28278">选修2-2</p><p value="28279">选修2-3</p><p value="28280">选修3-1</p><p value="28281">选修3-3</p><p value="28282">选修3-4</p><p value="28283">选修4-1</p><p value="28284">选修4-2</p><p value="28285">选修4-4</p><p value="28286">选修4-5</p><p value="28287">选修4-6</p><p value="28288">选修4-7</p><p value="28289">选修4-9</p></div>								
+							</div>
+						</div>
+						<div style="clear:both;"></div>
+							<div class="filter-show-title">
+								<div class="set-fliter-close">
+										<a class="filter-save"></a>
+								</div>
+								<div style="clear:both;"></div>
+							</div>
+					</div>
+
+</div> 
+                    
+                    
+                <div id="s_ctner_contents_jc" class="s-ctner-contents" style="overflow: visible; display: block;"> 
+                    <div id="book_left" class="book_left">
+                        <img class="xs-title" src="./Go! 题库_files/go_jiaocai.png">
+                        <div class="xs-desc" title="点击选择:学科，教材" href="javascript:void(0)" onclick="document.getElementById(&#39;light&#39;).style.display=&#39;block&#39;; document.getElementById(&#39;fade&#39;).style.display=&#39;block&#39;">
+                        <a class="book_selected">数学 人教A版</a>
+                        <img src="./Go! 题库_files/sanjiaoblue.png">
+                        </div>
+                        <div class="book_chapter">
+                            <ul id="category" style="top: -454.71014492753625px; margin-left: 0px;"><li class="category_li_size category_li_padding_a category_li_back_top " onclick="test_click(28352)"><span class="cp_index_value">1</span><a title="第1章 集合与函数概念" style="padding-left:30px ;">第1章 集合与函数概念</a></li><li class="category_li_size category_li_padding_a category_li_back_mid " onclick="test_click(28353)"><span class="cp_index_value">2</span><a title="第2章 基本初等函数（Ⅰ）" style="padding-left:30px ;">第2章 基本初等函数（Ⅰ）</a></li><li class="category_li_size category_li_padding_a category_li_back_mid " onclick="test_click(28354)"><span class="cp_index_value">3</span><a title="第3章 函数的应用" style="padding-left:30px ;">第3章 函数的应用</a></li><li class="category_li_size category_li_padding_a category_li_back_mid "></li><li class="category_li_size category_li_padding_a category_li_back_mid "></li><li class="category_li_size category_li_padding_a category_li_back_bottom "></li></ul>
+                        </div>
+                    </div>
+                    <div class="book-refresh-all">全<br>部</div>
+                    <div id="book_tree" class="book_right"><div class="mytree"><div style="float:left;width:289px;overflow: hidden;margin-left:31px;margin-top:31px;margin-bottom:31px;"><div class="myTreeNode category"><img src="./Go! 题库_files/i_1_open.png" alt=""><xf style="width:240px" id="28352" title="第1章 集合与函数概念" _fs="1" path="1" type="category">第1章 集合与函数概念</xf></div><div class="myTreeNode category"><img src="./Go! 题库_files/i_empty.png" alt=""><img src="./Go! 题库_files/i_2_2_open.png" alt=""><xf style="width:240px" id="28617" title="1.1 集合" _fs="1" path="2" type="category">1.1 集合</xf></div><div class="myTreeNode category"><img src="./Go! 题库_files/i_empty.png" alt=""><img src="./Go! 题库_files/i_2_3_open.png" alt=""><xf style="width:240px" id="28618" title="1.2 函数及其表示" _fs="" path="2" type="category">1.2 函数及其表示</xf></div><div class="myTreeNode category"><img src="./Go! 题库_files/i_empty.png" alt=""><img src="./Go! 题库_files/i_2_4_close.png" alt=""><xf style="width:240px" id="28619" title="1.3 函数的基本性质" _fs="" path="2" type="category">1.3 函数的基本性质</xf></div><div class="myTreeNode category"><img src="./Go! 题库_files/i_1_open.png" alt=""><xf style="width:240px" id="28353" title="第2章 基本初等函数（Ⅰ）" _fs="" path="1" type="category">第2章 基本初等函数（Ⅰ）</xf></div><div class="myTreeNode category"><img src="./Go! 题库_files/i_empty.png" alt=""><img src="./Go! 题库_files/i_2_2_open.png" alt=""><xf style="width:240px" id="28620" title="2.1 指数函数" _fs="1" path="2" type="category">2.1 指数函数</xf></div><div class="myTreeNode category"><img src="./Go! 题库_files/i_empty.png" alt=""><img src="./Go! 题库_files/i_2_3_open.png" alt=""><xf style="width:240px" id="28621" title="2.2 对数函数" _fs="" path="2" type="category">2.2 对数函数</xf></div><div class="myTreeNode category"><img src="./Go! 题库_files/i_empty.png" alt=""><img src="./Go! 题库_files/i_2_4_close.png" alt=""><xf style="width:240px" id="28622" title="2.3 幂函数" _fs="" path="2" type="category">2.3 幂函数</xf></div><div class="myTreeNode category"><img src="./Go! 题库_files/i_1_open.png" alt=""><xf style="width:240px" id="28354" title="第3章 函数的应用" _fs="" path="1" type="category">第3章 函数的应用</xf></div><div class="myTreeNode category"><img src="./Go! 题库_files/i_empty.png" alt=""><img src="./Go! 题库_files/i_2_2_open.png" alt=""><xf style="width:240px" id="28623" title="3.1 函数与方程" _fs="1" path="2" type="category">3.1 函数与方程</xf></div><div class="myTreeNode category"><img src="./Go! 题库_files/i_empty.png" alt=""><img src="./Go! 题库_files/i_2_4_close.png" alt=""><xf style="width:240px" id="28624" title="3.2 函数模型及其应用" _fs="" path="2" type="category">3.2 函数模型及其应用</xf></div></div></div></div>
+                </div>
+
+            
+                <div id="s_ctner_contents_kg" class="s-ctner-contents" style="overflow: visible; display: none;"> 
+                    <div id="kg_left" class="kg_left">
+                        <img class="xs-title" src="./Go! 题库_files/go_kaogang.png">
+                        <div class="xs-desc" title="点击选择:学科，教材" href="javascript:void(0)" onclick="document.getElementById(&#39;light&#39;).style.display=&#39;block&#39;; document.getElementById(&#39;fade&#39;).style.display=&#39;block&#39;">
+                        <a class="kg_selected">数学 人教A版</a>
+                        <img src="./Go! 题库_files/sanjiaoyellow.png">
+                        </div>
+                        <div class="book_chapter">
+                            <ul id="knowledge" style="top: -454.71014492753625px; margin-left: 0px;"><li class="knowledge_li_size knowledge_li_padding_a knowledge_li_back_top " onclick="knowledge_click(1)"><span class="kg_index_value">1</span><a title="代数" style="padding-left:0px ;">代数</a></li><li class="knowledge_li_size knowledge_li_padding_a knowledge_li_back_mid " onclick="knowledge_click(238)"><span class="kg_index_value">2</span><a title="排列组合与概率统计" style="padding-left:0px ;">排列组合与概率统计</a></li><li class="knowledge_li_size knowledge_li_padding_a knowledge_li_back_mid " onclick="knowledge_click(313)"><span class="kg_index_value">3</span><a title="算法与框图" style="padding-left:0px ;">算法与框图</a></li><li class="knowledge_li_size knowledge_li_padding_a knowledge_li_back_mid " onclick="knowledge_click(337)"><span class="kg_index_value">4</span><a title="推理与证明" style="padding-left:0px ;">推理与证明</a></li><li class="knowledge_li_size knowledge_li_padding_a knowledge_li_back_mid " onclick="knowledge_click(353)"><span class="kg_index_value">5</span><a title="三角函数" style="padding-left:0px ;">三角函数</a></li><li class="knowledge_li_size knowledge_li_padding_a knowledge_li_back_mid " onclick="knowledge_click(424)"><span class="kg_index_value">6</span><a title="平面解析几何" style="padding-left:0px ;">平面解析几何</a></li><li class="knowledge_li_size knowledge_li_padding_a knowledge_li_back_mid " onclick="knowledge_click(498)"><span class="kg_index_value">7</span><a title="立体几何" style="padding-left:0px ;">立体几何</a></li><li class="knowledge_li_size knowledge_li_padding_a knowledge_li_back_mid " onclick="knowledge_click(570)"><span class="kg_index_value">8</span><a title="高等数学" style="padding-left:0px ;">高等数学</a></li><li class="knowledge_li_size knowledge_li_padding_a knowledge_li_back_mid " onclick="knowledge_click(784)"><span class="kg_index_value">9</span><a title="数学知识延伸" style="padding-left:0px ;">数学知识延伸</a></li><li class="knowledge_li_size knowledge_li_padding_b knowledge_li_back_bottom " onclick="knowledge_click(916)"><span class="kg_index_value">10</span><a title="数学竞赛" style="padding-left:0px ;">数学竞赛</a></li></ul>
+                        </div>
+                    </div>
+                    <div class="kg-refresh-all">全<br>部</div>
+                    <div id="kg_right" class="kg_right"><div class="mytree"><div style="float:left;width:289px;overflow: hidden;margin-left:31px;margin-top:31px;margin-bottom:31px;"><div class="myTreeNode knowledge"><img src="./Go! 题库_files/i_1_open.png" alt=""><xf style="width:240px" id="1" title="代数" _fs="1" path="1" type="knowledge">代数</xf></div><div class="myTreeNode knowledge"><img src="./Go! 题库_files/i_empty.png" alt=""><img src="./Go! 题库_files/i_2_2_open.png" alt=""><xf style="width:240px" id="2" title="集合" _fs="1" path="2" type="knowledge">集合</xf></div><div class="myTreeNode knowledge"><img src="./Go! 题库_files/i_empty.png" alt=""><img src="./Go! 题库_files/i_2_3_open.png" alt=""><xf style="width:240px" id="22" title="常用逻辑用语" _fs="" path="2" type="knowledge">常用逻辑用语</xf></div><div class="myTreeNode knowledge"><img src="./Go! 题库_files/i_empty.png" alt=""><img src="./Go! 题库_files/i_2_3_open.png" alt=""><xf style="width:240px" id="41" title="函数概念" _fs="" path="2" type="knowledge">函数概念</xf></div><div class="myTreeNode knowledge"><img src="./Go! 题库_files/i_empty.png" alt=""><img src="./Go! 题库_files/i_2_3_open.png" alt=""><xf style="width:240px" id="75" title="基本初等函数I" _fs="" path="2" type="knowledge">基本初等函数I</xf></div><div class="myTreeNode knowledge"><img src="./Go! 题库_files/i_empty.png" alt=""><img src="./Go! 题库_files/i_2_3_open.png" alt=""><xf style="width:240px" id="111" title="函数的应用" _fs="" path="2" type="knowledge">函数的应用</xf></div><div class="myTreeNode knowledge"><img src="./Go! 题库_files/i_empty.png" alt=""><img src="./Go! 题库_files/i_2_3_open.png" alt=""><xf style="width:240px" id="125" title="导数及其应用" _fs="" path="2" type="knowledge">导数及其应用</xf></div><div class="myTreeNode knowledge"><img src="./Go! 题库_files/i_empty.png" alt=""><img src="./Go! 题库_files/i_2_3_open.png" alt=""><xf style="width:240px" id="148" title="不等式" _fs="" path="2" type="knowledge">不等式</xf></div><div class="myTreeNode knowledge"><img src="./Go! 题库_files/i_empty.png" alt=""><img src="./Go! 题库_files/i_2_3_open.png" alt=""><xf style="width:240px" id="169" title="数列" _fs="" path="2" type="knowledge">数列</xf></div><div class="myTreeNode knowledge"><img src="./Go! 题库_files/i_empty.png" alt=""><img src="./Go! 题库_files/i_2_3_open.png" alt=""><xf style="width:240px" id="195" title="平面向量" _fs="" path="2" type="knowledge">平面向量</xf></div><div class="myTreeNode knowledge"><img src="./Go! 题库_files/i_empty.png" alt=""><img src="./Go! 题库_files/i_2_4_close.png" alt=""><xf style="width:240px" id="229" title="数系的扩充与复数" _fs="" path="2" type="knowledge">数系的扩充与复数</xf></div></div><div style="float:left;width:289px;overflow: hidden;margin-left:31px;margin-top:31px;margin-bottom:31px;"><div class="myTreeNode knowledge"><img src="./Go! 题库_files/i_1_open.png" alt=""><xf style="width:240px" id="238" title="排列组合与概率统计" _fs="" path="1" type="knowledge">排列组合与概率统计</xf></div><div class="myTreeNode knowledge"><img src="./Go! 题库_files/i_empty.png" alt=""><img src="./Go! 题库_files/i_2_2_open.png" alt=""><xf style="width:240px" id="239" title="统计与统计案例" _fs="1" path="2" type="knowledge">统计与统计案例</xf></div><div class="myTreeNode knowledge"><img src="./Go! 题库_files/i_empty.png" alt=""><img src="./Go! 题库_files/i_2_3_open.png" alt=""><xf style="width:240px" id="270" title="概率" _fs="" path="2" type="knowledge">概率</xf></div><div class="myTreeNode knowledge"><img src="./Go! 题库_files/i_empty.png" alt=""><img src="./Go! 题库_files/i_2_4_close.png" alt=""><xf style="width:240px" id="299" title="计数原理" _fs="" path="2" type="knowledge">计数原理</xf></div><div class="myTreeNode knowledge"><img src="./Go! 题库_files/i_1_open.png" alt=""><xf style="width:240px" id="313" title="算法与框图" _fs="" path="1" type="knowledge">算法与框图</xf></div><div class="myTreeNode knowledge"><img src="./Go! 题库_files/i_empty.png" alt=""><img src="./Go! 题库_files/i_2_1_open.png" alt=""><xf style="width:240px" id="314" title="算法初步与框图" _fs="1" path="2" type="knowledge">算法初步与框图</xf></div><div class="myTreeNode knowledge"><img src="./Go! 题库_files/i_1_open.png" alt=""><xf style="width:240px" id="337" title="推理与证明" _fs="" path="1" type="knowledge">推理与证明</xf></div><div class="myTreeNode knowledge"><img src="./Go! 题库_files/i_empty.png" alt=""><img src="./Go! 题库_files/i_2_1_open.png" alt=""><xf style="width:240px" id="338" title="推理与证明" _fs="1" path="2" type="knowledge">推理与证明</xf></div><div class="myTreeNode knowledge"><img src="./Go! 题库_files/i_1_open.png" alt=""><xf style="width:240px" id="353" title="三角函数" _fs="" path="1" type="knowledge">三角函数</xf></div><div class="myTreeNode knowledge"><img src="./Go! 题库_files/i_empty.png" alt=""><img src="./Go! 题库_files/i_2_2_open.png" alt=""><xf style="width:240px" id="354" title="三角函数及其恒等变换" _fs="1" path="2" type="knowledge">三角函数及其恒等变换</xf></div><div class="myTreeNode knowledge"><img src="./Go! 题库_files/i_empty.png" alt=""><img src="./Go! 题库_files/i_2_4_close.png" alt=""><xf style="width:240px" id="389" title="三角函数" _fs="" path="2" type="knowledge">三角函数</xf></div></div></div></div>
+                </div>
+                <div id="s_ctner_contents_jb" class="s-ctner-contents" style="overflow: visible; display: none;"> 
+                    <div id="jb_top" class="jb_top">
+                        <img class="xs-title" src="./Go! 题库_files/go_juanbang.png">
+                        <div id="district-show" class="district-show"> 
+                                  
+                        <p class="district-item-selected" value="2">北京</p>
+                                                            <p value="9">山东</p>                                <p value="8">浙江</p>                                <p value="6">江苏</p>                                <p value="7">广东</p>                                <p value="3">上海</p>                                <p value="21">河南</p>                                <p value="12">河北</p>                                <p value="13">福建</p>                                <p value="15">四川</p>                                <p value="18">辽宁</p>                                <p value="16">湖南</p>                                <p value="10">湖北</p>                                <p value="4">天津</p>                                <p value="22">陕西</p>                                <p value="19">黑龙江</p>                                <p value="14">安徽</p>                                <p value="11">吉林</p>                                <p value="20">山西</p>                                <p value="17">江西</p>                                <p value="5">重庆</p>                                <p value="29">内蒙古</p>                                <p value="24">甘肃</p>                                <p value="26">广西</p>                                <p value="23">云南</p>                                <p value="32">新疆</p>                                <p value="25">贵州</p>                                <p value="27">海南</p>                        </div>
+                        <div id="distict_selected_info" class="xs-desc" href="javascript:void(0)" onclick="document.getElementById(&#39;district-show&#39;).style.display=&#39;block&#39;; ">
+                        <a id="distict_selected" class="distict_selected">北京</a>
+                        <img src="./Go! 题库_files/sanjiaored.png">
+                        </div>
+
+                        <div id="jb_nav" class="jb_nav">
+                            <img class="jb_nav_left" src="./Go! 题库_files/zuojiantou.png" style="display:none;">
+                            <a type="junior_com">小初竞赛</a>
+                            <a class="selected" type="junior_exam">中考真题</a>
+                            <a type="junior_good">初中精品</a>
+                            <a type="senior_exam">高考专题</a>
+                            <a type="senior_good">名校秘题</a>
+                            <img class="jb_nav_right" src="./Go! 题库_files/youjiantou.png" style="display:none;">
+                        </div>
+                        
+                    </div>
+                    <div id="jb_left" class="jb_left">
+                        <div id="jb_title" class="jb_title">最新试卷</div>
+                        <ul id="list_new_junior_exam" style="top: -454.71014492753625px; margin-left: 0px;"><li style=" height: 42px;background: url(/imgs/paper_zhongkaozhenjuan_s.png) no-repeat 24px 0px;padding-top: 10px;padding-right: 10px;padding-left: 89px;line-height: 25px;font-size:15px;color:#666666;"><a style="text-decoration:underline" title="2010年北京市密云县中考数学试卷" target="_blank" href="http://www.gotiku.com/search/showpaper?k=1174491689&expires=1437275246&sign=U3lc6nuKVzF15SBYOiEfif8RvS4%3D">2010年北京市密云县中考数学试卷</a> <!--br><div style="font-size:12px;color:#777777;">更新时间:2014-11-21 16:39:52</div--></li><li style=" height: 42px;background: url(/imgs/paper_zhongkaozhenjuan_s.png) no-repeat 24px 0px;padding-top: 10px;padding-right: 10px;padding-left: 89px;line-height: 25px;font-size:15px;color:#666666;"><a style="text-decoration:underline" title="2001年北京市中考数学试卷" target="_blank" href="http://www.gotiku.com/search/showpaper?k=1644248105&expires=1437275246&sign=LSPSl7Kut8DCe%2BkcHiR0o5KB7XE%3D">2001年北京市中考数学试卷</a> <!--br><div style="font-size:12px;color:#777777;">更新时间:2014-11-21 16:39:52</div--></li><li style=" height: 42px;background: url(/imgs/paper_zhongkaozhenjuan_s.png) no-repeat 24px 0px;padding-top: 10px;padding-right: 10px;padding-left: 89px;line-height: 25px;font-size:15px;color:#666666;"><a style="text-decoration:underline" title="2004年北京市中考数学试卷" target="_blank" href="http://www.gotiku.com/search/showpaper?k=218215465&expires=1437275246&sign=PuU%2FL0aPG%2Fr1t9zvFAdhmOxLpBA%3D">2004年北京市中考数学试卷</a> <!--br><div style="font-size:12px;color:#777777;">更新时间:2014-11-21 16:39:52</div--></li><li style=" height: 42px;background: url(/imgs/paper_zhongkaozhenjuan_s.png) no-repeat 24px 0px;padding-top: 10px;padding-right: 10px;padding-left: 89px;line-height: 25px;font-size:15px;color:#666666;"><a style="text-decoration:underline" title="2010年北京市顺义区中考数学试卷" target="_blank" href="http://www.gotiku.com/search/showpaper?k=1174491945&expires=1437275246&sign=ZC%2BQYfNdS5cBSOIW%2F2zqZy%2B3HyA%3D">2010年北京市顺义区中考数学试卷</a> <!--br><div style="font-size:12px;color:#777777;">更新时间:2014-11-21 16:39:52</div--></li></ul>
+                        <ul id="list_new_senior_exam" style="display:none"><li style=" height: 42px;background: url(/imgs/paper_gaokaofuxi_s.png) no-repeat 24px 0px;padding-top: 10px;padding-right: 10px;padding-left: 89px;line-height: 25px;font-size:15px;color:#666666;"><a style="text-decoration:underline" title="2013-2014学年北京师范大学南湖附属学校高三基础知识适应性训练数学试卷（2）" target="_blank" href="http://www.gotiku.com/search/showpaper?k=4177604138&expires=1437275246&sign=NKuje1nXyhACXeLuk9NbJA5BqrI%3D">2013-2014学年北京师范大学南湖附属学校高三基础知识...</a> <!--br><div style="font-size:12px;color:#777777;">更新时间:2014-11-21 16:39:52</div--></li><li style=" height: 42px;background: url(/imgs/paper_gaokaofuxi_s.png) no-repeat 24px 0px;padding-top: 10px;padding-right: 10px;padding-left: 89px;line-height: 25px;font-size:15px;color:#666666;"><a style="text-decoration:underline" title="2010年北京市一模试卷及高频考点透析：推理与证明 几何证明选讲" target="_blank" href="http://www.gotiku.com/search/showpaper?k=201445929&expires=1437275246&sign=isaPVzuD9%2FNtvbbPQSe%2BAzKP9V8%3D">2010年北京市一模试卷及高频考点透析：推理与证明 几...</a> <!--br><div style="font-size:12px;color:#777777;">更新时间:2014-11-21 16:39:52</div--></li><li style=" height: 42px;background: url(/imgs/paper_gaokaofuxi_s.png) no-repeat 24px 0px;padding-top: 10px;padding-right: 10px;padding-left: 89px;line-height: 25px;font-size:15px;color:#666666;"><a style="text-decoration:underline" title="2013-2014学年北京师范大学南湖附属学校高三基础知识适应性训练数学试卷（6）" target="_blank" href="http://www.gotiku.com/search/showpaper?k=604086313&expires=1437275246&sign=4MXn72KGP4FmCDqPWzCfi0fvvJU%3D">2013-2014学年北京师范大学南湖附属学校高三基础知识...</a> <!--br><div style="font-size:12px;color:#777777;">更新时间:2014-11-21 16:39:52</div--></li><li style=" height: 42px;background: url(/imgs/paper_gaokaofuxi_s.png) no-repeat 24px 0px;padding-top: 10px;padding-right: 10px;padding-left: 89px;line-height: 25px;font-size:15px;color:#666666;"><a style="text-decoration:underline" title="2010年北京市一模试卷及高频考点透析：三角函数" target="_blank" href="http://www.gotiku.com/search/showpaper?k=3892416042&expires=1437275246&sign=bCoxV%2BZWn5eoo%2BCADJg8SUfixII%3D">2010年北京市一模试卷及高频考点透析：三角函数</a> <!--br><div style="font-size:12px;color:#777777;">更新时间:2014-11-21 16:39:52</div--></li></ul>
+						<ul id="list_new_junior_com" style="display:none"><li style=" height: 42px;background: url(/imgs/paper_jingsaishijuan_s.png) no-repeat 24px 0px;padding-top: 10px;padding-right: 10px;padding-left: 89px;line-height: 25px;font-size:15px;color:#666666;"><a style="text-decoration:underline" title="2002年北京市初二数学竞赛（初赛）试卷" target="_blank" href="http://www.gotiku.com/search/showpaper?k=2567020841&expires=1437275246&sign=a3w79n9FOp6%2FbpyhDnE1xBNRNjs%3D">2002年北京市初二数学竞赛（初赛）试卷</a> <!--br><div style="font-size:12px;color:#777777;">更新时间:2014-11-21 16:39:52</div--></li><li style=" height: 42px;background: url(/imgs/paper_jingsaishijuan_s.png) no-repeat 24px 0px;padding-top: 10px;padding-right: 10px;padding-left: 89px;line-height: 25px;font-size:15px;color:#666666;"><a style="text-decoration:underline" title="北京市海淀区第9届“智慧杯”小学数学竞赛决赛试卷" target="_blank" href="http://www.gotiku.com/search/showpaper?k=805389353&expires=1437275246&sign=teIZacs8MpJ2zzC%2BejZ64ej8FKI%3D">北京市海淀区第9届“智慧杯”小学数学竞赛决赛试卷</a> <!--br><div style="font-size:12px;color:#777777;">更新时间:2014-11-21 16:39:52</div--></li><li style=" height: 42px;background: url(/imgs/paper_jingsaishijuan_s.png) no-repeat 24px 0px;padding-top: 10px;padding-right: 10px;padding-left: 89px;line-height: 25px;font-size:15px;color:#666666;"><a style="text-decoration:underline" title="2013年北京市大兴区亦庄第二中心小学四年级数学竞赛试卷" target="_blank" href="http://www.gotiku.com/search/showpaper?k=520213545&expires=1437275246&sign=mjUhuQUAEPlKXGiyuA4czjJNdos%3D">2013年北京市大兴区亦庄第二中心小学四年级数学竞赛...</a> <!--br><div style="font-size:12px;color:#777777;">更新时间:2014-11-21 16:39:52</div--></li><li style=" height: 42px;background: url(/imgs/paper_jingsaishijuan_s.png) no-repeat 24px 0px;padding-top: 10px;padding-right: 10px;padding-left: 89px;line-height: 25px;font-size:15px;color:#666666;"><a style="text-decoration:underline" title="2009年北京市初二数学竞赛试卷" target="_blank" href="http://www.gotiku.com/search/showpaper?k=3070344745&expires=1437275246&sign=BvjQnUxHIREIeZ%2F%2BHJKQcwdkyOI%3D">2009年北京市初二数学竞赛试卷</a> <!--br><div style="font-size:12px;color:#777777;">更新时间:2014-11-21 16:39:52</div--></li></ul>
+						<ul id="list_new_junior_good" style="display:none"><li style=" height: 42px;background: url(/imgs/paper_jingdiantiji_s.png) no-repeat 24px 0px;padding-top: 10px;padding-right: 10px;padding-left: 89px;line-height: 25px;font-size:15px;color:#666666;"><a style="text-decoration:underline" title="第7章《生活中的轴对称》好题集（08）：7.2 简单的轴对称图形" target="_blank" href="http://www.gotiku.com/search/showpaper?k=3791769130&expires=1437275246&sign=JjutT36UTtjmw5xT9bDctQZc8ss%3D">第7章《生活中的轴对称》好题集（08）：7.2 简单的轴...</a> <!--br><div style="font-size:12px;color:#777777;">更新时间:2014-11-21 16:39:52</div--></li><li style=" height: 42px;background: url(/imgs/paper_changkaotiji_s.png) no-repeat 24px 0px;padding-top: 10px;padding-right: 10px;padding-left: 89px;line-height: 25px;font-size:15px;color:#666666;"><a style="text-decoration:underline" title="第17章《一元二次方程》常考题集（07）：17.2 一元二次方程的解法" target="_blank" href="http://www.gotiku.com/search/showpaper?k=3825301290&expires=1437275246&sign=U84XpRe0AAolI%2FiYtFvVJxj7XJU%3D">第17章《一元二次方程》常考题集（07）：17.2 一元二...</a> <!--br><div style="font-size:12px;color:#777777;">更新时间:2014-11-21 16:39:52</div--></li><li style=" height: 42px;background: url(/imgs/paper_jingdiantiji_s.png) no-repeat 24px 0px;padding-top: 10px;padding-right: 10px;padding-left: 89px;line-height: 25px;font-size:15px;color:#666666;"><a style="text-decoration:underline" title="第7章《生活中的轴对称》好题集（07）：7.2 简单的轴对称图形" target="_blank" href="http://www.gotiku.com/search/showpaper?k=3791769386&expires=1437275246&sign=uBM7ojYmbL8wvwmRKzuQ288iBhk%3D">第7章《生活中的轴对称》好题集（07）：7.2 简单的轴...</a> <!--br><div style="font-size:12px;color:#777777;">更新时间:2014-11-21 16:39:52</div--></li><li style=" height: 42px;background: url(/imgs/paper_changkaotiji_s.png) no-repeat 24px 0px;padding-top: 10px;padding-right: 10px;padding-left: 89px;line-height: 25px;font-size:15px;color:#666666;"><a style="text-decoration:underline" title="第17章《一元二次方程》常考题集（04）：17.2 一元二次方程的解法" target="_blank" href="http://www.gotiku.com/search/showpaper?k=3825300010&expires=1437275246&sign=cPkY7ZbypVSkdKBHo8uB6za%2FsYA%3D">第17章《一元二次方程》常考题集（04）：17.2 一元二...</a> <!--br><div style="font-size:12px;color:#777777;">更新时间:2014-11-21 16:39:52</div--></li></ul>
+						<ul id="list_new_senior_good" style="display:none"><li style=" height: 42px;background: url(/imgs/paper_yuekaoshijuan_s.png) no-repeat 24px 0px;padding-top: 10px;padding-right: 10px;padding-left: 89px;line-height: 25px;font-size:15px;color:#666666;"><a style="text-decoration:underline" title="2012-2013学年北京四中高三（上）10月统练数学试卷1（文科）" target="_blank" href="http://www.gotiku.com/search/showpaper?k=3976318250&expires=1437275246&sign=JtNroUIG8JnB2AsvG3l1m9kdmfs%3D">2012-2013学年北京四中高三（上）10月统练数学试卷1...</a> <!--br><div style="font-size:12px;color:#777777;">更新时间:2014-11-21 16:39:52</div--></li><li style=" height: 42px;background: url(/imgs/paper_qimoshijuan_s.png) no-repeat 24px 0px;padding-top: 10px;padding-right: 10px;padding-left: 89px;line-height: 25px;font-size:15px;color:#666666;"><a style="text-decoration:underline" title="2009-2010学年北京市人大附中九年级（上）期末数学试卷" target="_blank" href="http://www.gotiku.com/search/showpaper?k=4177652778&expires=1437275246&sign=IxJUgiG7h7pg3vIBBjfrCJ13DhM%3D">2009-2010学年北京市人大附中九年级（上）期末数学试...</a> <!--br><div style="font-size:12px;color:#777777;">更新时间:2014-11-21 16:39:52</div--></li><li style=" height: 42px;background: url(/imgs/paper_qizhongshijuan_s.png) no-repeat 24px 0px;padding-top: 10px;padding-right: 10px;padding-left: 89px;line-height: 25px;font-size:15px;color:#666666;"><a style="text-decoration:underline" title="2008-2009学年北京四中高二（下）期中数学试卷（理科）" target="_blank" href="http://www.gotiku.com/search/showpaper?k=3791732010&expires=1437275246&sign=msS3kscP%2BsWqAbUIipD3AiRSB30%3D">2008-2009学年北京四中高二（下）期中数学试卷（理科...</a> <!--br><div style="font-size:12px;color:#777777;">更新时间:2014-11-21 16:39:52</div--></li><li style=" height: 42px;background: url(/imgs/paper_yuekaoshijuan_s.png) no-repeat 24px 0px;padding-top: 10px;padding-right: 10px;padding-left: 89px;line-height: 25px;font-size:15px;color:#666666;"><a style="text-decoration:underline" title="2010-2011学年北京市人大附中九年级（上）数学统练试卷（9）" target="_blank" href="http://www.gotiku.com/search/showpaper?k=3909194538&expires=1437275246&sign=mfz0yZ9oehHlNzXcIPUXUP%2FTT%2Fw%3D">2010-2011学年北京市人大附中九年级（上）数学统练试...</a> <!--br><div style="font-size:12px;color:#777777;">更新时间:2014-11-21 16:39:52</div--></li></ul>
+                    </div>
+                    <div id="jb_right" class="jb_right">
+                        <div id="jb_title" class="jb_title">最热试卷</div>
+                        <ul id="list_hot_junior_exam" style="top: -454.71014492753625px; margin-left: 0px;"><li style=" height: 42px;background: url(/imgs/paper_zhongkaozhenjuan_s.png) no-repeat 24px 0px;padding-top: 10px;padding-right: 10px;padding-left: 89px;line-height: 25px;font-size:15px;color:#666666;"><a style="text-decoration:underline" title="2010年北京市密云县中考数学试卷" target="_blank" href="http://www.gotiku.com/search/showpaper?k=1174491689&expires=1437275246&sign=U3lc6nuKVzF15SBYOiEfif8RvS4%3D">2010年北京市密云县中考数学试卷</a> <!--br><div style="font-size:12px;color:#777777;">更新时间:2014-11-21 16:39:52</div--></li><li style=" height: 42px;background: url(/imgs/paper_zhongkaozhenjuan_s.png) no-repeat 24px 0px;padding-top: 10px;padding-right: 10px;padding-left: 89px;line-height: 25px;font-size:15px;color:#666666;"><a style="text-decoration:underline" title="2002年北京市朝阳区中考数学试卷" target="_blank" href="http://www.gotiku.com/search/showpaper?k=2382439209&expires=1437275246&sign=YtLXqjPzC%2FSYDwq9GDUSYiUQ3ck%3D">2002年北京市朝阳区中考数学试卷</a> <!--br><div style="font-size:12px;color:#777777;">更新时间:2014-11-21 16:39:52</div--></li><li style=" height: 42px;background: url(/imgs/paper_zhongkaozhenjuan_s.png) no-repeat 24px 0px;padding-top: 10px;padding-right: 10px;padding-left: 89px;line-height: 25px;font-size:15px;color:#666666;"><a style="text-decoration:underline" title="2011年北京市中考数学试卷" target="_blank" href="http://www.gotiku.com/search/showpaper?k=1006727209&expires=1437275246&sign=eJzUzw4LUhnk000J7ek%2BbfRzP7s%3D">2011年北京市中考数学试卷</a> <!--br><div style="font-size:12px;color:#777777;">更新时间:2014-11-21 16:39:52</div--></li><li style=" height: 42px;background: url(/imgs/paper_zhongkaozhenjuan_s.png) no-repeat 24px 0px;padding-top: 10px;padding-right: 10px;padding-left: 89px;line-height: 25px;font-size:15px;color:#666666;"><a style="text-decoration:underline" title="2002年北京市西城区中考数学试卷" target="_blank" href="http://www.gotiku.com/search/showpaper?k=453077801&expires=1437275246&sign=3mEJlzqCit%2BtiRHUUEJuI1pKpMA%3D">2002年北京市西城区中考数学试卷</a> <!--br><div style="font-size:12px;color:#777777;">更新时间:2014-11-21 16:39:52</div--></li></ul>
+						<ul id="list_hot_senior_exam" style="display:none"><li style=" height: 42px;background: url(/imgs/paper_gaokaofuxi_s.png) no-repeat 24px 0px;padding-top: 10px;padding-right: 10px;padding-left: 89px;line-height: 25px;font-size:15px;color:#666666;"><a style="text-decoration:underline" title="2010年北京市一模试卷及高频考点透析：推理与证明 几何证明选讲" target="_blank" href="http://www.gotiku.com/search/showpaper?k=201445929&expires=1437275246&sign=isaPVzuD9%2FNtvbbPQSe%2BAzKP9V8%3D">2010年北京市一模试卷及高频考点透析：推理与证明 几...</a> <!--br><div style="font-size:12px;color:#777777;">更新时间:2014-11-21 16:39:52</div--></li><li style=" height: 42px;background: url(/imgs/paper_gaokaofuxi_s.png) no-repeat 24px 0px;padding-top: 10px;padding-right: 10px;padding-left: 89px;line-height: 25px;font-size:15px;color:#666666;"><a style="text-decoration:underline" title="《统计》2013年高三数学一轮复习单元训练（北京邮电大学附中）" target="_blank" href="http://www.gotiku.com/search/showpaper?k=654433577&expires=1437275246&sign=KzfI23lgxo1pzfxyT1EEsGw6gm4%3D">《统计》2013年高三数学一轮复习单元训练（北京邮电...</a> <!--br><div style="font-size:12px;color:#777777;">更新时间:2014-11-21 16:39:52</div--></li><li style=" height: 42px;background: url(/imgs/paper_gaokaofuxi_s.png) no-repeat 24px 0px;padding-top: 10px;padding-right: 10px;padding-left: 89px;line-height: 25px;font-size:15px;color:#666666;"><a style="text-decoration:underline" title="2010年北京市一模试卷及高频考点透析：三角函数" target="_blank" href="http://www.gotiku.com/search/showpaper?k=3892416042&expires=1437275246&sign=bCoxV%2BZWn5eoo%2BCADJg8SUfixII%3D">2010年北京市一模试卷及高频考点透析：三角函数</a> <!--br><div style="font-size:12px;color:#777777;">更新时间:2014-11-21 16:39:52</div--></li><li style=" height: 42px;background: url(/imgs/paper_gaokaofuxi_s.png) no-repeat 24px 0px;padding-top: 10px;padding-right: 10px;padding-left: 89px;line-height: 25px;font-size:15px;color:#666666;"><a style="text-decoration:underline" title="《数列》2013年高三数学一轮复习单元训练（北京邮电大学附中）" target="_blank" href="http://www.gotiku.com/search/showpaper?k=4060191530&expires=1437275246&sign=w99vRb0kwqhsWelaHDVae707ob4%3D">《数列》2013年高三数学一轮复习单元训练（北京邮电...</a> <!--br><div style="font-size:12px;color:#777777;">更新时间:2014-11-21 16:39:52</div--></li></ul>
+						<ul id="list_hot_junior_com" style="display:none"><li style=" height: 42px;background: url(/imgs/paper_jingsaishijuan_s.png) no-repeat 24px 0px;padding-top: 10px;padding-right: 10px;padding-left: 89px;line-height: 25px;font-size:15px;color:#666666;"><a style="text-decoration:underline" title="2007年北京市初二数学竞赛试卷" target="_blank" href="http://www.gotiku.com/search/showpaper?k=3070344489&expires=1437275246&sign=oE3j7L2Rh1z6Jrkai8h2sPUbHC0%3D">2007年北京市初二数学竞赛试卷</a> <!--br><div style="font-size:12px;color:#777777;">更新时间:2014-11-21 16:39:52</div--></li><li style=" height: 42px;background: url(/imgs/paper_jingsaishijuan_s.png) no-repeat 24px 0px;padding-top: 10px;padding-right: 10px;padding-left: 89px;line-height: 25px;font-size:15px;color:#666666;"><a style="text-decoration:underline" title="2013年北京市大兴区亦庄第二中心小学四年级数学竞赛试卷" target="_blank" href="http://www.gotiku.com/search/showpaper?k=520213545&expires=1437275246&sign=mjUhuQUAEPlKXGiyuA4czjJNdos%3D">2013年北京市大兴区亦庄第二中心小学四年级数学竞赛...</a> <!--br><div style="font-size:12px;color:#777777;">更新时间:2014-11-21 16:39:52</div--></li><li style=" height: 42px;background: url(/imgs/paper_jingsaishijuan_s.png) no-repeat 24px 0px;padding-top: 10px;padding-right: 10px;padding-left: 89px;line-height: 25px;font-size:15px;color:#666666;"><a style="text-decoration:underline" title="2002年北京市初二数学竞赛（复赛）试卷" target="_blank" href="http://www.gotiku.com/search/showpaper?k=3070343977&expires=1437275246&sign=YOKGaGiwrsTm180sJVICwvgSf6g%3D">2002年北京市初二数学竞赛（复赛）试卷</a> <!--br><div style="font-size:12px;color:#777777;">更新时间:2014-11-21 16:39:52</div--></li><li style=" height: 42px;background: url(/imgs/paper_jingsaishijuan_s.png) no-repeat 24px 0px;padding-top: 10px;padding-right: 10px;padding-left: 89px;line-height: 25px;font-size:15px;color:#666666;"><a style="text-decoration:underline" title="2002年北京市初二数学竞赛（初赛）试卷" target="_blank" href="http://www.gotiku.com/search/showpaper?k=2567020841&expires=1437275246&sign=a3w79n9FOp6%2FbpyhDnE1xBNRNjs%3D">2002年北京市初二数学竞赛（初赛）试卷</a> <!--br><div style="font-size:12px;color:#777777;">更新时间:2014-11-21 16:39:52</div--></li></ul>
+						<ul id="list_hot_junior_good" style="display:none"><li style=" height: 42px;background: url(/imgs/paper_changkaotiji_s.png) no-repeat 24px 0px;padding-top: 10px;padding-right: 10px;padding-left: 89px;line-height: 25px;font-size:15px;color:#666666;"><a style="text-decoration:underline" title="第17章《一元二次方程》常考题集（07）：17.2 一元二次方程的解法" target="_blank" href="http://www.gotiku.com/search/showpaper?k=3825301290&expires=1437275246&sign=U84XpRe0AAolI%2FiYtFvVJxj7XJU%3D">第17章《一元二次方程》常考题集（07）：17.2 一元二...</a> <!--br><div style="font-size:12px;color:#777777;">更新时间:2014-11-21 16:39:52</div--></li><li style=" height: 42px;background: url(/imgs/paper_jingdiantiji_s.png) no-repeat 24px 0px;padding-top: 10px;padding-right: 10px;padding-left: 89px;line-height: 25px;font-size:15px;color:#666666;"><a style="text-decoration:underline" title="第7章《生活中的轴对称》好题集（07）：7.2 简单的轴对称图形" target="_blank" href="http://www.gotiku.com/search/showpaper?k=3791769386&expires=1437275246&sign=uBM7ojYmbL8wvwmRKzuQ288iBhk%3D">第7章《生活中的轴对称》好题集（07）：7.2 简单的轴...</a> <!--br><div style="font-size:12px;color:#777777;">更新时间:2014-11-21 16:39:52</div--></li><li style=" height: 42px;background: url(/imgs/paper_changkaotiji_s.png) no-repeat 24px 0px;padding-top: 10px;padding-right: 10px;padding-left: 89px;line-height: 25px;font-size:15px;color:#666666;"><a style="text-decoration:underline" title="第17章《一元二次方程》常考题集（05）：17.2 一元二次方程的解法" target="_blank" href="http://www.gotiku.com/search/showpaper?k=3825300778&expires=1437275246&sign=%2BDtDtw97DokNdP5MtPO%2Bj75odck%3D">第17章《一元二次方程》常考题集（05）：17.2 一元二...</a> <!--br><div style="font-size:12px;color:#777777;">更新时间:2014-11-21 16:39:52</div--></li><li style=" height: 42px;background: url(/imgs/paper_changkaotiji_s.png) no-repeat 24px 0px;padding-top: 10px;padding-right: 10px;padding-left: 89px;line-height: 25px;font-size:15px;color:#666666;"><a style="text-decoration:underline" title="第17章《一元二次方程》常考题集（04）：17.2 一元二次方程的解法" target="_blank" href="http://www.gotiku.com/search/showpaper?k=3825300010&expires=1437275246&sign=cPkY7ZbypVSkdKBHo8uB6za%2FsYA%3D">第17章《一元二次方程》常考题集（04）：17.2 一元二...</a> <!--br><div style="font-size:12px;color:#777777;">更新时间:2014-11-21 16:39:52</div--></li></ul>
+						<ul id="list_hot_senior_good" style="display:none"><li style=" height: 42px;background: url(/imgs/paper_qizhongshijuan_s.png) no-repeat 24px 0px;padding-top: 10px;padding-right: 10px;padding-left: 89px;line-height: 25px;font-size:15px;color:#666666;"><a style="text-decoration:underline" title="2008-2009学年北京四中高二（下）期中数学试卷（文科）" target="_blank" href="http://www.gotiku.com/search/showpaper?k=3791732522&expires=1437275246&sign=xe%2B1qFUYSS7s5l2uTCodhFATSNQ%3D">2008-2009学年北京四中高二（下）期中数学试卷（文科...</a> <!--br><div style="font-size:12px;color:#777777;">更新时间:2014-11-21 16:39:52</div--></li><li style=" height: 42px;background: url(/imgs/paper_qimoshijuan_s.png) no-repeat 24px 0px;padding-top: 10px;padding-right: 10px;padding-left: 89px;line-height: 25px;font-size:15px;color:#666666;"><a style="text-decoration:underline" title="2009-2010学年北京市人大附中九年级（上）期末数学试卷" target="_blank" href="http://www.gotiku.com/search/showpaper?k=4177652778&expires=1437275246&sign=IxJUgiG7h7pg3vIBBjfrCJ13DhM%3D">2009-2010学年北京市人大附中九年级（上）期末数学试...</a> <!--br><div style="font-size:12px;color:#777777;">更新时间:2014-11-21 16:39:52</div--></li><li style=" height: 42px;background: url(/imgs/paper_qizhongshijuan_s.png) no-repeat 24px 0px;padding-top: 10px;padding-right: 10px;padding-left: 89px;line-height: 25px;font-size:15px;color:#666666;"><a style="text-decoration:underline" title="2012-2013学年北京市清华附中七年级（下）期中数学试卷" target="_blank" href="http://www.gotiku.com/search/showpaper?k=4194393130&expires=1437275246&sign=sHfy70mh0B87fL3u%2FKi6Hv2Yn%2Bw%3D">2012-2013学年北京市清华附中七年级（下）期中数学试...</a> <!--br><div style="font-size:12px;color:#777777;">更新时间:2014-11-21 16:39:52</div--></li><li style=" height: 42px;background: url(/imgs/paper_xiaoxuemoni_s.png) no-repeat 24px 0px;padding-top: 10px;padding-right: 10px;padding-left: 89px;line-height: 25px;font-size:15px;color:#666666;"><a style="text-decoration:underline" title="2012年北京市清华附中小升初数学模拟试卷" target="_blank" href="http://www.gotiku.com/search/showpaper?k=4026618666&expires=1437275246&sign=6LaNsywwZ8WScPwtXPIhsbDpfcA%3D">2012年北京市清华附中小升初数学模拟试卷</a> <!--br><div style="font-size:12px;color:#777777;">更新时间:2014-11-21 16:39:52</div--></li></ul>
+                    </div>
+                </div>
+                             
+                <section class="footer-tools" style="left:-110px;top:30px;">
+                    <ul>
+                        <li>
+                            <div id="tab_jiaocai" class="tab_item tab_jiaocai_selected" href="" title="GO教材" style="display: block;"></div>
+                        </li>
+                        <li>
+                            <div id="tab_kaogang" class="tab_item tab_kaogang" href="" title="GO考纲" style="display: block;"></div>
+                        </li>
+                        <li>
+                            <div id="tab_juanbang" class="tab_item tab_juanbang" href="" title="GO卷宗" style="display: block;"></div>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>
+<script>
+fresh_jc_chapter();
+load_filter();
+</script>
+	<div style="clear:both"></div>	<div class="footer">
+		<div class="footer-container">
+			<div class="footer-items">
+				<!--<a href="javascript:void(0);" onclick="setHomepage('http://www.gotiku.com')">设为首页</a> | --> <a href="http://www.gotiku.com/search/aboutus">关于我们</a> | <a href="http://www.gotiku.com/search/contactus">联系我们</a>
+				&nbsp;<a href="http://weibo.com/u/5303547875" target="_blank" title="新浪微博" class="xinlang">
+			<img style="width:23px;height:18px;" src="./Go! 题库_files/weibo.png">
+                    <div class="head-nop" style="width:63px; height: 30px;padding: 10px; top: -52px; ">
+                        <script src="./Go! 题库_files/wb.js" type="text/javascript" charset="utf-8"></script>
+                        <wb:follow-button uid="5303547875" type="red_1" width="136" height="24"><iframe src="./Go! 题库_files/followbutton.html" width="136" height="24" frameborder="0" scrolling="no" marginheight="0"></iframe></wb:follow-button>
+                    </div>
+</a>
+<a style="background-position:0px -1809px;" title="官方微信" class="weixin">
+	 <img style="width:25px;height:22px;" src="./Go! 题库_files/weixin.png">
+   <div class="head-nop" style="width: 130px; height: 130px; padding: 10px; top: -152px; ">
+     <img src="./Go! 题库_files/go_weixin.png" style="width:133px;height:133px;padding:0;margin:0">
+   </div>
+</a>
+			</div>
+			<div class="footer-items">
+				©2014 云校 京ICP证12037256号-5
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+<script type="text/javascript">
+	
+function setHomepage(url){
+        confirm(document.all);
+ 	//if (document.all != null){ 
+                confirm("cc");
+ 		document.body.style.behavior='url(#default#homepage)'; 
+ 		document.body.setHomePage(url); 
+ 	//}
+ 	if (window.sidebar){ 
+ 		if(window.netscape){ 
+ 			try{ 
+ 				netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect"); 
+ 			}catch (e){ } 
+ 		} 
+ 		var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components. interfaces.nsIPrefBranch); 
+ 		prefs.setCharPref('browser.startup.homepage',url); 
+ 	}else{ } 
+}
+
+</script>
+<!-- JiaThis Button BEGIN -->
+<script type="text/javascript" src="./Go! 题库_files/jiathis_r.js" charset="utf-8"></script><script src="./Go! 题库_files/ckepop.js" charset="utf-8"></script><script src="./Go! 题库_files/ckecenterpop.js" charset="utf-8"></script><script type="text/javascript" src="./Go! 题库_files/plugin.client.js" charset="utf-8"></script>
+<script type="text/javascript">
+        $(document).ready(function(){
+                $(".ckepopBottom").remove();
+                $(".jiathis_style").css("top",350);
+        });
+</script>
+<!-- JiaThis Button END -->
+<script src="./Go! 题库_files/qwrap.js"></script>
+<script src="./Go! 题库_files/qcommon.js"></script>
+<script>
+        var doms = W("#input_query"),
+                configs = {
+                        data_url : "http://crawler.gotiku.com:8008/ui/Suggest.class.php?query=%%KEYWORD%%&cb=%%CALLBACKFUN%%",
+                        //data_url : "http://so.v.360.cn/suggest.php?count=6&fmt=jsonp&kw=%%KEYWORD%%&cb=%%CALLBACKFUN%%",
+                        topData_url:"http://so.v.360.cn/top.php?fmt=jsonp&cb=%%CALLBACKFUN%%",
+                        get_data_fun : "jsonp",
+                        pos_adjust : {"width" : +30 ,"top" : -1 , "z-index" : 10},
+                        hasTopSuggest:false
+                }, 
+        suggester = new suggest(doms , configs);
+</script><div class="suggest-pop" style="position: absolute; top: 116px; left: 629.5px; width: 571px; z-index: 201;"><div class="suggest-pop-bd"></div></div>
+<div style="display:none;">
+        <script type="text/javascript">
+                var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F8f4473108a7ba94ee1ad8891064e3c60' type='text/javascript'%3E%3C/script%3E"));
+        </script><script src="./Go! 题库_files/h.js" type="text/javascript"></script>
+</div></body></html>

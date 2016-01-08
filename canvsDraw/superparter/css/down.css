@@ -1,0 +1,65 @@
+body {
+	font: 12px Tahoma;
+	margin: 0px auto;
+	text-align: center;
+	background-color: #fff;
+	background-image: url(../images/hongbao_part2.png);
+	background-repeat: repeat-y;
+	background-position: top;
+	background-size:cover; 
+	width:100%;
+
+}
+	
+#maindiv {
+	margin-top: 0;
+	margin-left: 18%;
+	text-align: left;
+	width: 64%;
+	height: 25%;
+	overflow: auto;
+}
+#cell-div{
+	margin-left:15%;
+	margin-right:0%;
+	width:84%;
+}
+.mobile_icon{
+    float:left;
+	width:7%;
+}
+.get_hongbao{
+    float:left;
+	margin-top:15%;
+	width:100%;
+	background-size:contain;
+}
+#cell-number {
+    width:90%;
+	border:0px;
+	font-size:18px;
+	line-height:10%;
+	background-color:transparent;
+	font-family: "Hiragino Sans GB";
+	color:#6d6d6d;
+}
+
+#formdiv {
+	margin-left: 15%;
+	margin-left: 15%;
+	text-align: center;
+	border: solid 1px #FF0000;
+	width: 70%;
+	overflow: auto;
+	background-color:white;
+	height:50%;
+}
+#descdiv {
+	margin-top: 0 auto;
+	text-align: center;
+	border-top: solid 1px #FF0000;
+	width: 100%;
+	overflow: auto;
+	background-color:yellow;
+	height:20%;
+}

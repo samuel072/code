@@ -1,0 +1,376 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+    padding:0;
+    margin:0;
+}
+li{list-style:none;}
+a{text-decoration:none;outline: none;}
+a:focus{outline:none;}
+img{border:0; vertical-align:middle;}
+table{border-collapse:collapse;}
+html{width: 100%;height:auto;}
+body {
+
+    font: 12px Tahoma;
+
+    margin: 0px auto;
+
+    width:100%;
+
+    background: #0082cd;
+}
+
+body,div,input{
+
+    font-family: 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', arial, '宋体', \5b8b\4f53, Tahoma, Arial, Helvetica, STHeiti !important;
+
+}
+table{border-collapse: collapse;}
+
+input[type="button"], input[type="submit"], input[type="reset"] {
+    -webkit-appearance: none;
+}
+
+/*通用*/
+textarea {  -webkit-appearance: none;}
+.app-wrapper{
+    width: 100%;
+    height: 100%;
+    margin:0 auto;
+}
+.app-content{
+    height:100%;
+    margin:0 auto;
+    overflow: hidden;
+}
+.app-txt{
+    position:absolute;
+    width:100%;
+    height:100%;
+    z-index:-1;
+}
+.app-txtimg{
+    width:100%;
+    height:100%;
+}
+#lastTxt{
+    text-align: right;
+}
+#lastTxt a{
+    font-size:12px;
+    color: white;
+    float: right;
+}
+/*登录注册*/
+.app-img{
+    width:100%;
+}
+.aapBtn{
+    position: absolute;
+    /*bottom:5%;*/
+    left:7.5%;
+    width:85%;
+    margin: 4% 0;
+}
+.aapBtn p span{
+    color:white;
+    vertical-align: middle;
+}
+
+.aapbtn{
+    position: absolute;
+    /*bottom:5%;*/
+    left:7.5%;
+    width:85%;
+    margin-top: 10px;
+}
+.aapbtn p span{
+    color:white;
+    vertical-align: middle;
+}
+.telphone{
+    border:1px solid #fff;
+    border-radius:5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    margin-bottom:10px;
+    padding:0 0 0 10px;
+    font-size: 15px;
+}
+.code{
+    border:1px solid #fff;
+    border-radius:5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    margin-bottom:10px;
+    padding:0 0 0 10px;
+    color: #fff;
+    font-size: 15px;
+}
+.code tr{border-radius:5px;border:1px solid #fff;}
+.number{
+    background:rgba(0,0,0,0) ;
+    border:0;
+    color:white;
+    padding:10px 0;
+    width:70%;
+}
+.password{
+    background:rgba(0,0,0,0) ;
+    border:0;
+    color:white;
+    vertical-align: middle;
+    padding:10px 0;
+    width:55%;
+}
+
+#hqcode{
+    border-left:1px solid #fff;
+    border-bottom:0;
+    border-top:0;
+    border-right:0;
+    padding: 11px 1px;
+    font-size:9px;
+    vertical-align: middle;
+    background-color:transparent;
+    color:white;
+    float:right;
+    text-align: center;
+}
+.login{
+    width:100%;
+    background:#ffd800;
+    border:none;
+    color:#675700;
+    padding:10px;
+    border-radius:5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    margin-top:20px;
+}
+.register{
+    width:100%;
+    background:#ffd800;
+    border:none;
+    color:#675700;
+    padding:10px;
+    border-radius:5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    margin-top:20px;
+}
+
+@media screen and (max-width:240px){
+    #hqcode{float: right;}
+    .password{ width: 35%;}
+    .number{width: 60%;}
+    .aapbtn{bottom: -80px;}
+    .login{margin-top:0;margin-bottom:5px;}
+    .register{margin-top:0;margin-bottom:5px;}
+}
+
+/*登陆*/
+.admin-number{
+    background:rgba(0,0,0,0) ;
+    border:0;
+    color:white;
+    padding:10px 0;
+    width:80%;
+}
+.admin-password{
+    background:rgba(0,0,0,0) ;
+    border:0;
+    color:white;
+    vertical-align: middle;
+    padding:10px 0;
+    width:80%;
+}
+@media screen and (max-width:240px){
+    .admin-number{width:70%;}
+    .admin-password{width:70%;}
+}
+
+/*刮刮卡*/
+
+.container{
+    display: inline-block;
+    height: 30%;
+    left: 15.5%;
+    position: absolute;
+    top: 38%;
+    width: 70%;
+}
+
+#robot {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+    width:100%;
+    height: 100%;
+}
+
+#redux {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 2;
+    width:100%;
+    height: 100%;
+}
+/*填写信息*/
+.success{
+    position: absolute;
+    z-index: 33;
+    width: 100%;
+    height: 100%;
+    background:rgba(181, 181, 181, 0.7) ;
+}
+.info{
+    position: relative;
+    top: 20%;
+    left: 5%;
+    width:90%;
+    height: 60%;
+    background: url("/superparter/images/successBg.png") no-repeat center ;
+    background-size: contain;
+    border-radius: 10px;
+    font-size:20px;
+}
+
+.addBtn{
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    display: block;
+    background: #ff4949;
+    color:#fff;
+    width: 90%;
+    padding: 3% 0;
+    text-align: center;
+    border-radius: 10px;
+}
+@media screen and (max-width:240px){
+    .addBtn{margin:0 auto;}
+}
+
+/*没抽中*/
+.fail{
+    position: absolute;
+    z-index: 33;
+    width: 100%;
+    height: 100%;
+    background:rgba(181, 181, 181, 0.7) ;
+}
+.failInfo{
+    position: relative;
+    top: 10%;
+    width:100%;
+    height: 60%;
+    background: url("/superparter/images/failBg.png") no-repeat center ;
+    background-size: contain;
+    border-radius: 10px;
+    font-size:20px;
+}
+.againBtn{
+    position: absolute;
+    bottom: 10%;
+    left: 50px;
+    display: block;
+    width:1500px;
+}
+.againBtn>img{
+    display: block;
+    width: 100%;
+}
+.failInfo>em{
+    display: block;
+    position: absolute;
+    right:8%;
+    top: 44%;
+    width: 10%;
+    height: 10%;
+    background: url("/superparter/images/close.png") no-repeat center ;
+}
+@media screen and (max-width:240px){
+    .againBtn{
+        left: 20% !important;
+        width: 60% !important;
+    }
+    .failInfo > em{
+        background: url("/superparter/images/closeSmall.png") no-repeat center ;
+        right: 14%;
+    }
+}
+@media screen and (min-width:768px){
+    .againBtn{
+        left: 20% !important;
+        width: 60% !important;
+    }
+    .failInfo > em{
+        right: 15%;
+    }
+}
+/*再抽一次*/
+.againLoty{
+    position: absolute;
+    z-index: 33;
+    width: 100%;
+    height: 100%;
+    background:url("/superparter/images/weichouzhong.png") no-repeat center center / cover ;
+    display: none;
+}
+
+/*信息提交*/
+.aresbtn{
+    position: absolute;
+    bottom:20%;
+    left:7.5%;
+    width:85%;
+}
+.ares{
+    border:1px solid #fff;
+    border-radius:5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    margin-bottom:10px;
+    padding:0 0 0 10px;
+    background:#fff ;
+}
+.aresbtn span{color:#c89800;}
+.ares input{
+    background:rgba(0,0,0,0) ;
+    border:0;
+    color:#c89800;
+    padding:10px 0;
+}
+.report{
+    width:100%;
+    background:#ff4949;
+    border:none;
+    color:#fff;
+    padding:10px;
+    border-radius:5px;
+    -moz-border-radius:5px;
+    -webkit-border-radius:5px;
+    margin-top:20px;
+}
+@media screen and (max-width:240px){
+    .addAddress{
+        width: 55%;
+    }
+}
+
+/*提交成功*/
+.onceBtn{
+    position: absolute;
+    top: 55%;
+    left: 50px;
+    display: block;
+    width:500px;
+}
+.onceBtn>img{
+    display: block;
+    width: 100%;
+}

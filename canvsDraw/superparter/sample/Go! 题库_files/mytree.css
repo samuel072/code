@@ -1,0 +1,83 @@
+
+.mytree {
+	font-family: arial, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', '宋体', \5b8b\4f53, Tahoma, Arial, Helvetica, STHeiti;
+	font-size: 14px;
+	color: #666;
+	white-space: nowrap;
+	overflow:hidden;
+	/*margin-top: 5px;
+	margin-left: 5px;
+	width: 2000px;
+	overflow: hidden;
+	overflow-x: auto;*/
+	color:#666666;
+}
+.mytree img {
+	border: 0px;
+	vertical-align: middle;
+        float:left;
+}
+.mytree a {
+	color: #333;
+	text-decoration: none;
+}
+.mytree a.node, .mytree a.nodeSel {
+	white-space: nowrap;
+	padding: 1px 2px 1px 2px;
+}
+.mytree a.node:hover, .mytree a.nodeSel:hover {
+	color: white;
+}
+.mytree a.nodeSel {
+	background-color: #c0d2ec;
+}
+.mytree .clip {
+	overflow: hidden;
+}
+.myTreeNode{
+	height: 24px;
+	line-height: 24px;
+	font-size: 14px;
+	width:289px;
+}
+/*
+.myTreeNode:hover,.myTreeNode:hover a{
+        cursor: pointer;
+        color: white;
+        background-color: #5FBACF;
+}
+*/
+
+.category_selected,.category:hover,.category:hover a{
+        cursor: pointer;
+        color: white;
+        background-color: #5FBACF;
+}
+.knowledge_selected,.knowledge:hover,.knowledge:hover a{
+        cursor: pointer;
+        color: white;
+        background-color: orange;
+}
+
+.paper_type_selected,.paper_type:hover,.paper_type:hover a{
+	cursor: pointer;
+	color: white;
+	background-color: #FFCC33;
+}       
+
+.node_selected{
+	color: white;
+	background-color: #5FBACF;
+}
+
+.myTreeNode xf{
+        float: left;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width:160px;
+}
+.myTreeNode xf:hover{
+    text-decoration: underline;
+}
+
